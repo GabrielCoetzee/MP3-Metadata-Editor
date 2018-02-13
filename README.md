@@ -29,7 +29,7 @@ Some notes about the Server :
 - The server code, consists of three solutions : Windows Service, WCF Rest API and a Server library, the latter of which is my Data Access layer.
 - The WCF Rest service is hosted within the Windows Service, therefore the Windows Service is the start-up project.
 - I mentioned above, you may modify an MP3s metadata without the server code / Windows Service running. When the Windows service is running though, you can download album art for a song through my WCF Rest API. My     WCF Rest API uses LAST FM`s API to get the album art. 
-- When you have modified an MP3`s metadata, and you press 'Save Changes' on the client, if the Windows Service is not running, the client will only save the changes to the MP3 file, but if the Windows Service is       running, it will also POST the MP3 details to the WCF Rest API, which will add the MP3 details to a SQL database via Entity Framework. 
+- When you have modified an MP3`s metadata, and you press 'Save Changes' on the client, the client will only save the changes to the MP3 file if the Windows Service is not running, but if the Windows Service is        running, it will also POST the MP3 details to the WCF Rest API, which will add the MP3 details to a SQL database via Entity Framework. 
 - The above mentioned database, is currently only used to save MP3 details to. I did this mostly as an Entity Framework exercise, but I may decide to extend it at a later stage, or use the database in another          project.
 
 
