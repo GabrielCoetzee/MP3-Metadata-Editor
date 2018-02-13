@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3_MetadataEditor-Client", "MP3_MetadataEditor-Client\MP3_MetadataEditor-Client.csproj", "{848EC98E-E086-4DF6-A3B3-3A8B567FCF38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3_MetadataEditor-Client.Tests", "MP3_MetadataEditor-Client.Tests\MP3_MetadataEditor-Client.Tests.csproj", "{BBC69C64-B9A3-4747-9180-DFBB6F5FBBFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{848EC98E-E086-4DF6-A3B3-3A8B567FCF38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{848EC98E-E086-4DF6-A3B3-3A8B567FCF38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{848EC98E-E086-4DF6-A3B3-3A8B567FCF38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{848EC98E-E086-4DF6-A3B3-3A8B567FCF38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBC69C64-B9A3-4747-9180-DFBB6F5FBBFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBC69C64-B9A3-4747-9180-DFBB6F5FBBFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBC69C64-B9A3-4747-9180-DFBB6F5FBBFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBC69C64-B9A3-4747-9180-DFBB6F5FBBFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

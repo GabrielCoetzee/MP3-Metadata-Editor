@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="95890439-af31-48f7-bcde-21785be2fa9b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/api/MP3MetadataEditorService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MP3MetadataEditorService.xsd" MetadataType="Schema" ID="7b9bfe15-305c-4eea-a7bd-0c7cbc60a3f2" SourceId="1" SourceUrl="http://localhost:8733/api/MP3MetadataEditorService?xsd=xsd3" />
+    <MetadataFile FileName="MP3MetadataEditorService.disco" MetadataType="Disco" ID="8deacf40-9d6e-42d1-9826-7a2b1fe87064" SourceId="1" SourceUrl="http://localhost:8733/api/MP3MetadataEditorService?disco" />
+    <MetadataFile FileName="MP3MetadataEditorService1.xsd" MetadataType="Schema" ID="3bc37832-7764-488e-a09d-066fe4f8de33" SourceId="1" SourceUrl="http://localhost:8733/api/MP3MetadataEditorService?xsd=xsd0" />
+    <MetadataFile FileName="MP3MetadataEditorService2.xsd" MetadataType="Schema" ID="5b9d9b63-0153-4884-bd85-433cd1b14ff6" SourceId="1" SourceUrl="http://localhost:8733/api/MP3MetadataEditorService?xsd=xsd2" />
+    <MetadataFile FileName="MP3MetadataEditorService3.xsd" MetadataType="Schema" ID="daa3f653-e14a-4335-b470-ad8033ee3ddd" SourceId="1" SourceUrl="http://localhost:8733/api/MP3MetadataEditorService?xsd=xsd1" />
+    <MetadataFile FileName="MP3MetadataEditorService.wsdl" MetadataType="Wsdl" ID="97f1bedd-83fc-48a8-9500-42b310b7531c" SourceId="1" SourceUrl="http://localhost:8733/api/MP3MetadataEditorService?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

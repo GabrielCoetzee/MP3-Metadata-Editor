@@ -1,0 +1,124 @@
+﻿<Window x:Class="MP3_MetadataEditor_Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:converts="clr-namespace:MP3_MetadataEditor_Client.Helpers.Converters"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d"
+        Title="MP3_MetadataEditor" Height="846.071" Width="525" Background="Black" MinHeight="846.071" MinWidth="525">
+
+    <Window.Resources>
+        <converts:BinaryImageConverter x:Key="ImageConverter" />
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibleOrHidden" />
+
+        <ControlTemplate x:Key="ErrorTemplate">
+            <DockPanel LastChildFill="True">
+                <Border BorderBrush="Red" BorderThickness="1">
+                    <AdornedElementPlaceholder />
+                </Border>
+            </DockPanel>
+        </ControlTemplate>
+
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  />
+            <ColumnDefinition  />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" LastChildFill="True" >
+            <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" DockPanel.Dock="Top" Margin="5" Foreground="White" FontSize="18">MP3 Metadata Editor</Label>
+        </DockPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Grid.Column="0" Grid.Row="0" Margin="5" VerticalAlignment="Center" Foreground="White" >Choose File :</Label>
+            <TextBox Grid.Column="0" Grid.Row="0" Margin="5" Width="200" Height="20" IsReadOnly="True" Text="{Binding ModelMP3.DisplayMP3Path, Mode=TwoWay}" />
+            <Button Grid.Row="0" Grid.Column="1" Width="100" Height="30" Content="Load..." Margin="15, 10" Command="{Binding LoadMP3Command}" />
+        </StackPanel>
+
+        <Separator Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="5, 5" VerticalAlignment="Bottom" />
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <Label Grid.Column="0" Grid.Row="1" Margin="5" Foreground="White" >Album Art :</Label>
+            <Image x:Name="AlbumArtViewer" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Width="200" Height="200" Margin="9" Source="{Binding ModelMP3.AlbumArt, FallbackValue=../../Helpers/Assets/album-art-empty.png, TargetNullValue=../../Helpers/Assets/album-art-empty.png, Mode=TwoWay, Converter={StaticResource ImageConverter}}" />
+            <StackPanel Orientation="Vertical" >
+                <Button Grid.Row="1" Grid.Column="1" Width="100" Height="30" Content="Browse..." Margin="15, 10" VerticalAlignment="Top" Command="{Binding BrowseAlbumArtCommand}" />
+                <Button Grid.Row="1" Grid.Column="1" Width="100" Height="30" Content="Download Cover" Margin="15, 10" VerticalAlignment="Top" Command="{Binding DownloadAlbumArtCommand}" />
+                <Button Grid.Row="1" Grid.Column="1" Width="100" Height="30" Content="Clear Cover" Margin="15, 10" VerticalAlignment="Top" Command="{Binding ClearAlbumArtCommand}" />
+                <fa:ImageAwesome Grid.Row="1" Grid.Column="1" Icon="Spinner" Visibility="{Binding ModelMP3.IsBusyDownloadingAlbumArt, FallbackValue=Hidden, Mode=TwoWay, Converter={StaticResource BooleanToVisibleOrHidden}}" Foreground="White" Spin="True" Height="48" Width="48" />
+                <Label Grid.Row="1" Grid.Column="1" Visibility="{Binding ModelMP3.IsBusyDownloadingAlbumArt, FallbackValue=Hidden, Mode=TwoWay, Converter={StaticResource BooleanToVisibleOrHidden}}" Width="100" Height="30" Content="Downloading Album Art..." Margin="15,10" Foreground="White" FontSize="8" />
+            </StackPanel>
+        </StackPanel>
+
+        <Separator Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5, 5" VerticalAlignment="Bottom" />
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="5" Foreground="White" >Artist :</Label>
+                <TextBox Grid.Column="0" Grid.Row="2" Margin="30, 10, 5, 5" Width="165" Height="20" Text="{Binding ModelMP3.Artist, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTemplate}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="5" Foreground="White" >Song Title :</Label>
+                <TextBox Grid.Column="0" Grid.Row="2" Margin="5, 10" Width="165" Height="20" Text="{Binding ModelMP3.SongTitle, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTemplate}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="5" Foreground="White" >Composer :</Label>
+                <TextBox Grid.Column="0" Grid.Row="2" Margin="5, 10" Width="165" Height="20" Text="{Binding ModelMP3.Composer, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="5" Foreground="White" >Comments :</Label>
+                <TextBox Grid.Column="0" Grid.Row="2" Margin="5, 10" Width="160" Height="100" Text="{Binding ModelMP3.Comments, Mode=TwoWay}" />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="5" Foreground="White" >Album :</Label>
+                <TextBox Grid.Column="1" Grid.Row="2" Margin="46, 10,5,5" Width="136" Height="20" Text="{Binding ModelMP3.Album, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="5" Foreground="White" >Genre :</Label>
+                <TextBox Grid.Column="1" Grid.Row="2" Margin="50, 10, 5, 5" Width="135" Height="20" Text="{Binding ModelMP3.Genre, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="5" Foreground="White" >Track Number :</Label>
+                <TextBox Grid.Column="1" Grid.Row="2" Margin="9, 10, 5, 5" Width="40" Height="20" Text="{Binding ModelMP3.TrackNumber, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" Validation.ErrorTemplate="{StaticResource ErrorTemplate}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="5" Foreground="White" >Year :</Label>
+                <TextBox Grid.Column="1" Grid.Row="2" Margin="62, 10, 5, 5" Width="40" Height="20" Text="{Binding ModelMP3.Year, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" Validation.ErrorTemplate="{StaticResource ErrorTemplate}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+                <fa:ImageAwesome Icon="Music" Visibility="{Binding ModelMP3.IsBusySavingMP3, FallbackValue=Hidden, Mode=TwoWay, Converter={StaticResource BooleanToVisibleOrHidden}}" Foreground="White" Spin="True" Height="48" Width="48" />
+                <Label Visibility="{Binding ModelMP3.IsBusySavingMP3, FallbackValue=Hidden, Mode=TwoWay, Converter={StaticResource BooleanToVisibleOrHidden}}" Width="100" Height="30" Content="Saving MP3..." Margin="15,10" Foreground="White" FontSize="8" />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,5,5,25" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Label Margin="5" Foreground="White" >Lyrics :</Label>
+            <TextBox Margin="5, 10" Width="390" Height="100" ScrollViewer.VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" Text="{Binding ModelMP3.Lyrics, Mode=TwoWay}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Width="100" Height="30" Content="Save Changes" Margin="15, 10" HorizontalAlignment="Center" Command="{Binding SaveMP3Command}"  />
+        </StackPanel>
+
+    </Grid>
+</Window>
