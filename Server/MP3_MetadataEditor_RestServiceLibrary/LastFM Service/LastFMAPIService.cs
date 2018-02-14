@@ -1,7 +1,6 @@
 ﻿using MP3_MetadataEditor_RestServiceLibrary.LastFM_Service.Communication_Objects;
 using MP3_MetadataEditor_RestServiceLibrary.LastFM_Service.Communication_Objects.RequestObjects;
 using MP3_MetadataEditor_RestServiceLibrary.LastFM_Service.Constants;
-using MP3_MetadataEditor_RestServiceLibrary.LastFM_Service;
 using Newtonsoft.Json;
 using System.IO;
 using System.Net;

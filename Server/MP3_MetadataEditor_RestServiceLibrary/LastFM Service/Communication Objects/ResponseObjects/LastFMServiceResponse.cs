@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
-using System.Runtime.Serialization;
 
 namespace MP3_MetadataEditor_RestServiceLibrary.LastFM_Service.Communication_Objects
 {
-    [DataContract]
+    [JsonObject]
     public class LastFmServiceResponse
     {
         public Album album { get; set; }

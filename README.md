@@ -32,6 +32,9 @@ Some notes about the Server :
 - When you have modified an MP3`s metadata, and you press 'Save Changes' on the client, the client will only save the changes to the MP3 file if the Windows Service is not running, but if the Windows Service is        running, it will also POST the MP3 details to the WCF Rest API, which will add the MP3 details to a SQL database via Entity Framework. 
 - The above mentioned database, is currently only used to save MP3 details to. I did this mostly as an Entity Framework exercise, but I may decide to extend it at a later stage, or use the database in another          project.
 
+Please run both solutions in Debug mode. I still have to make an installer to deploy this application. 
 
-Sorry for the extensive reading! I hope you enjoy going through my code.
+Sorry for the extensive reading! I hope you enjoy going through my code. 
+
+
 
