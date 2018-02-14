@@ -22,7 +22,7 @@ namespace MP3_MetadataEditor_WindowsService
                 ServiceBase[] ServicesToRun;
                 ServicesToRun = new ServiceBase[]
                 {
-                    new Service1()
+                    new MP3MetadataEditorWindowsService()
                 };
                 ServiceBase.Run(ServicesToRun);
             #endif
