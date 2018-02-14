@@ -13,7 +13,7 @@ Technologies Used :
 - C# Windows Service
 - C# WCF Rest Service
 - WPF FontAwesome
-- Newtonsoft.JSON
+- JSON.NET
 
 Some notes about the Client : 
 
