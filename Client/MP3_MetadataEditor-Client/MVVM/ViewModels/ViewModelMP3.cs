@@ -272,7 +272,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         #endregion BackgroundWorker Events
 
-        #region Private Methods - Logic 
+        #region Logic Methods - Interaction and manipulation of Model Instance within ViewModel
 
         private void ClearAll()
         {
@@ -362,6 +362,6 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
                 ModelMP3.AlbumArt = BinaryImageConverter.ConvertToByteArray(chooseAlbumArt.FileName);
         }
 
-        #endregion Private Methods - Logic
+        #endregion Logic Methods - Interaction and manipulation of Model Instance within ViewModel
     }
 }
