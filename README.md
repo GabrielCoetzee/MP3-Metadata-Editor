@@ -23,6 +23,7 @@ Some notes about the Client :
 - You can modify an MP3`s metadata, and save it to the MP3, without the Windows Service / Server Code running. This was one of my goals.
 - You may also choose custom album art to add to an MP3. This is achievable without any server code running, this was also part of the goal.
 - I made use both of the Factory and Singleton patterns. This was in order to allow extensibility as to how MP3 metadata is read. (Open-Closed Principle)
+- There is some model validation, on a few fields, but there are no business cases for them. I implemented it just for the sake of completeness. 
 
 Some notes about the Server : 
 
