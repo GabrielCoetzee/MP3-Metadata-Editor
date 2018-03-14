@@ -1,7 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MP3_MetadataEditor_Client.Logic.Interfaces;
-using MP3_MetadataEditor_Client.Logic.Interface_Implementations.Factory;
+using MP3_MetadataEditor_Client.MetadataReaders.Interface_Implementations;
+using MP3_MetadataEditor_Client.MetadataReaders.Interface_Implementations.Factory;
 using MP3_MetadataEditor_Client.MVVM.ViewModels;
 using MP3_MetadataEditor_Client.MVVM.Models;
 
@@ -13,8 +14,7 @@ namespace MP3_MetadataEditor_Client.Tests.MVVM.ViewModels
         [TestMethod]
         public void MP3MetadataReader_Returned_Via_Factory_Should_Not_Be_Null()
         {
-            IMP3MetadataReader _mp3MetadataReader;
-            _mp3MetadataReader =  MP3metadataReaderFactory.Instance.GetSelectedMP3metadataReader();
+            IMP3MetadataReader _mp3MetadataReader =  Mp3MetadataReaderFactory.Instance.GetMp3MetadataReader((int)MP3MetadataReaderTypes.Mp3MetadataReaders.Taglib);
 
             Assert.IsNotNull(_mp3MetadataReader);
         }
@@ -22,8 +22,7 @@ namespace MP3_MetadataEditor_Client.Tests.MVVM.ViewModels
         [TestMethod]
         public void MP3MetadataReader_Returned_Via_Factory_Should_Be_Instance_Of_IMP3metadataReader()
         {
-            IMP3MetadataReader _mp3MetadataReader;
-            _mp3MetadataReader = MP3metadataReaderFactory.Instance.GetSelectedMP3metadataReader();
+            IMP3MetadataReader _mp3MetadataReader = Mp3MetadataReaderFactory.Instance.GetMp3MetadataReader((int)MP3MetadataReaderTypes.Mp3MetadataReaders.Taglib);
 
             Assert.IsInstanceOfType(_mp3MetadataReader, typeof(IMP3MetadataReader));
         }

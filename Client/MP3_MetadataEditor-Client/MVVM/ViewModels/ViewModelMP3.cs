@@ -1,7 +1,6 @@
 ﻿using Microsoft.Win32;
 using MP3_MetadataEditor_Client.Helpers.Command_Classes;
 using MP3_MetadataEditor_Client.Helpers.Converters;
-using MP3_MetadataEditor_Client.Logic.Interface_Implementations.Factory;
 using MP3_MetadataEditor_Client.Logic.Interfaces;
 using MP3_MetadataEditor_Client.MP3MetadataEditorService;
 using MP3_MetadataEditor_Client.MVVM.Models;
@@ -11,6 +10,8 @@ using System.ComponentModel;
 using System.IO;
 using System.Net;
 using System.Windows.Input;
+using MP3_MetadataEditor_Client.MetadataReaders.Interface_Implementations;
+using MP3_MetadataEditor_Client.MetadataReaders.Interface_Implementations.Factory;
 
 namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 {
@@ -39,7 +40,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         public ModelMP3 ModelMP3
         {
-            get { return _modelMP3; }
+            get => _modelMP3;
             set
             {
                 _modelMP3 = value;
@@ -49,7 +50,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         public ICommand DownloadAlbumArtCommand
         {
-            get { return _downloadAlbumArtCommand; }
+            get => _downloadAlbumArtCommand;
             set
             {
                 _downloadAlbumArtCommand = value;
@@ -60,7 +61,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         public ICommand SaveMP3Command
         {
-            get { return _saveMP3Command; }
+            get => _saveMP3Command;
             set
             {
                 _saveMP3Command = value;
@@ -70,7 +71,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         public ICommand LoadMP3Command
         {
-            get { return _loadMP3Command; }
+            get => _loadMP3Command;
             set
             {
                 _loadMP3Command = value;
@@ -80,7 +81,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         public ICommand BrowseAlbumArtCommand
         {
-            get { return _browseAlbumArtCommand; }
+            get => _browseAlbumArtCommand;
             set
             {
                 _browseAlbumArtCommand = value;
@@ -90,7 +91,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         public ICommand ClearAlbumArtCommand
         {
-            get { return _clearAlbumArtCommand; }
+            get => _clearAlbumArtCommand;
             set
             {
                 _clearAlbumArtCommand = value;
@@ -105,7 +106,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
         public ViewModelMP3()
         {
             InitializeCommands();
-            GetSelectedMP3metadataReader();
+            GetMP3MetadataReader();
         }
 
         #endregion Constructor
@@ -121,9 +122,9 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             DownloadAlbumArtCommand = new RelayCommand(DownloadAlbumArtCommand_Execute, DownloadAlbumArtCommand_CanExecute);
         }
 
-        private void GetSelectedMP3metadataReader()
+        private void GetMP3MetadataReader()
         {
-            _mp3MetadataReader = MP3metadataReaderFactory.Instance.GetSelectedMP3metadataReader();
+            _mp3MetadataReader = Mp3MetadataReaderFactory.Instance.GetMp3MetadataReader((int)MP3MetadataReaderTypes.Mp3MetadataReaders.Taglib);
         }
 
         #endregion Initialization
@@ -132,10 +133,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         public bool DownloadAlbumArtCommand_CanExecute()
         {
-            bool canExecute = false;
-
-            if (ModelMP3 != null && (ModelMP3.AlbumArt == null || ModelMP3.AlbumArt.Length < 1) && !ModelMP3.IsBusyDownloadingAlbumArt && !ModelMP3.IsBusySavingMP3)
-                canExecute = true;
+            bool canExecute = ModelMP3 != null && (ModelMP3.AlbumArt == null || ModelMP3.AlbumArt.Length < 1) && !ModelMP3.IsBusyDownloadingAlbumArt && !ModelMP3.IsBusySavingMP3;
 
             return canExecute;
         }
@@ -152,10 +150,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         public bool ClearAlbumArtCommand_CanExecute()
         {
-            bool canExecute = false;
-
-            if (ModelMP3 != null && ModelMP3.AlbumArt != null && ModelMP3.AlbumArt.Length >= 1 && !ModelMP3.IsBusySavingMP3)
-                canExecute = true;
+            bool canExecute = ModelMP3 != null && ModelMP3.AlbumArt != null && ModelMP3.AlbumArt.Length >= 1 && !ModelMP3.IsBusySavingMP3;
 
             return canExecute;
         }
@@ -167,10 +162,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         public bool SaveMP3Command_CanExecute()
         {
-            bool canExecute = false;
-
-            if (ModelMP3 != null && ModelMP3.FullMP3Path != string.Empty && !ModelMP3.HasError && !ModelMP3.IsBusyDownloadingAlbumArt && !ModelMP3.IsBusySavingMP3)
-                canExecute = true;
+            bool canExecute = ModelMP3 != null && ModelMP3.FullMP3Path != string.Empty && !ModelMP3.HasError && !ModelMP3.IsBusyDownloadingAlbumArt && !ModelMP3.IsBusySavingMP3;
 
             return canExecute;
         }
@@ -187,10 +179,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         public bool LoadAlbumArtCommand_CanExecute()
         {
-            bool canExecute = false;
-
-            if (ModelMP3 != null && ModelMP3.FullMP3Path != string.Empty && !ModelMP3.IsBusyDownloadingAlbumArt && !ModelMP3.IsBusySavingMP3)
-                canExecute = true;
+            bool canExecute = ModelMP3 != null && ModelMP3.FullMP3Path != string.Empty && !ModelMP3.IsBusyDownloadingAlbumArt && !ModelMP3.IsBusySavingMP3;
 
             return canExecute;
         }
@@ -244,9 +233,11 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             if (e.Error == null && albumArt?.Length > 1)
                 ModelMP3.AlbumArt = albumArt;
             else
-                System.Windows.Forms.MessageBox.Show(string.Format("Unable to locate album art for {0} - {1}.\nPlease verify that MP3 Metadata Editor Windows Service is running.", ModelMP3.Artist, ModelMP3.SongTitle), "No Album Art Found", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation);
+                System.Windows.Forms.MessageBox.Show(
+                    $"Unable to locate album art for {ModelMP3.Artist} - {ModelMP3.SongTitle}.\nPlease verify that MP3 Metadata Editor Windows Service is running.", "No Album Art Found", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation);
 
             ModelMP3.IsBusyDownloadingAlbumArt = false;
+
             CommandManager.InvalidateRequerySuggested(); //Used to force 'canExecute' methods to execute again, to update state of model instance on ViewModel
         }
 

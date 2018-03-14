@@ -1,13 +1,13 @@
-﻿
-using MP3_MetadataEditor_Client.Logic.Interfaces;
+﻿using MP3_MetadataEditor_Client.Logic.Interfaces;
+using MP3_MetadataEditor_Client.Logic.Interface_Implementations;
 
-namespace MP3_MetadataEditor_Client.Logic.Interface_Implementations.Factory
+namespace MP3_MetadataEditor_Client.MetadataReaders.Interface_Implementations.Factory
 {
-    public class MP3metadataReaderFactory
+    public class Mp3MetadataReaderFactory
     {
         #region Constructor
 
-        private MP3metadataReaderFactory()
+        private Mp3MetadataReaderFactory()
         {
 
         }
@@ -16,19 +16,16 @@ namespace MP3_MetadataEditor_Client.Logic.Interface_Implementations.Factory
 
         #region Properties
 
-        private enum MP3metadataReaders { TAGLIB };
-        private int selectedMP3metadataReader = (int)MP3metadataReaders.TAGLIB;
+        private IMP3MetadataReader _mp3MetadataReaderToReturn;
 
-        private IMP3MetadataReader _MP3metadataReaderToReturn;
-
-        private static MP3metadataReaderFactory _instance;
-        public static MP3metadataReaderFactory Instance
+        private static Mp3MetadataReaderFactory _instance;
+        public static Mp3MetadataReaderFactory Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = new MP3metadataReaderFactory();
+                    _instance = new Mp3MetadataReaderFactory();
                 }
                 return _instance;
             }
@@ -38,19 +35,19 @@ namespace MP3_MetadataEditor_Client.Logic.Interface_Implementations.Factory
 
         #region Factory
 
-        public IMP3MetadataReader GetSelectedMP3metadataReader()
+        public IMP3MetadataReader GetMp3MetadataReader(int selectedMp3MetadataReader)
         {
-            if (_MP3metadataReaderToReturn == null)
+            if (_mp3MetadataReaderToReturn == null)
             {
-                switch (selectedMP3metadataReader)
+                switch (selectedMp3MetadataReader)
                 {
-                    case (int)MP3metadataReaders.TAGLIB:
-                        _MP3metadataReaderToReturn = new TaglibMP3metadataReader();
+                    case (int)MP3MetadataReaderTypes.Mp3MetadataReaders.Taglib:
+                        _mp3MetadataReaderToReturn = new TaglibMp3MetadataReader();
                         break;
                 }
             }
 
-            return _MP3metadataReaderToReturn;
+            return _mp3MetadataReaderToReturn;
         }
 
         #endregion
