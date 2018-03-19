@@ -15,7 +15,7 @@ namespace MP3_MetadataEditor_Client.Service_Communication
 
         public string GetAlbumArt(string artist, string song)
         {
-            HttpWebRequest apiRequest = (HttpWebRequest)WebRequest.Create(getAlbumArtAPIUri + string.Format("Artist={0}&Song={1}", artist, song));
+            HttpWebRequest apiRequest = (HttpWebRequest)WebRequest.Create(getAlbumArtAPIUri + $"Artist={artist}&Song={song}");
             apiRequest.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
 
             using (HttpWebResponse response = (HttpWebResponse)apiRequest.GetResponse())

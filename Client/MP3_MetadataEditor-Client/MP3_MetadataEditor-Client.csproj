@@ -81,8 +81,8 @@
     <Compile Include="Helpers\Constants\Properties.cs" />
     <Compile Include="Helpers\Constants\ValidationErrors.cs" />
     <Compile Include="Helpers\Converters\BinaryImageConverter.cs" />
-    <Compile Include="MetadataReaders\Interface Implementations\Factory\MP3MetadataReaderFactory.cs" />
-    <Compile Include="MetadataReaders\Interface Implementations\MP3MetadataReaderTypes.cs" />
+    <Compile Include="MetadataReaders\Factory\MP3MetadataReaderFactory.cs" />
+    <Compile Include="MetadataReaders\Types\MP3MetadataReaderTypes.cs" />
     <Compile Include="MetadataReaders\Interface Implementations\TaglibMP3MetadataReader.cs" />
     <Compile Include="MetadataReaders\Interfaces\IMP3MetadataReader.cs" />
     <Compile Include="Service Communication\MP3MetadataEditorServiceProxy.cs" />

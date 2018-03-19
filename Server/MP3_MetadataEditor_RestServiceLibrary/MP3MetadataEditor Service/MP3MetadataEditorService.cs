@@ -10,6 +10,7 @@ using System.Linq;
 using System;
 using MP3_MetadataEditor_Server.Models;
 using MP3_MetadataEditor_RestServiceLibrary.MP3MetadataEditor_Service.Helpers.Converters;
+using MP3_MetadataEditor_RestServiceLibrary.Proxies;
 
 namespace MP3_MetadataEditor_RestServiceLibrary
 {
@@ -47,18 +48,21 @@ namespace MP3_MetadataEditor_RestServiceLibrary
         }
         public string GetAlbumArt(string artist, string song)
         {
-            LastFMServiceRequest lastFMServiceRequest = new LastFMServiceRequest() { Artist = artist, Song = song };
-            LastFmServiceResponse lastFMServiceResponse = new LastFMAPIService().GetAlbumArt(lastFMServiceRequest);
-            string lastFmImageWebPath = lastFMServiceResponse.album?.image[2].text;
+            var proxy = new LastFmApiServiceProxy();
 
-            string fileName = lastFmImageWebPath?.Remove(0, lastFmImageWebPath.LastIndexOf("/") + 1).TrimEnd('"', '\''); //+1 is to remove slash at the beginning
+            LastFMServiceRequest lastFMServiceRequest = new LastFMServiceRequest() { Artist = artist, Song = song };
+            LastFmServiceResponse lastFMServiceResponse = proxy.GetAlbumArt(lastFMServiceRequest);
+
+            string lastFmImageUrl = lastFMServiceResponse.album?.image[2].text;
+
+            string fileName = lastFmImageUrl?.Remove(0, lastFmImageUrl.LastIndexOf("/") + 1).TrimEnd('"', '\''); //+1 is to remove slash at the beginning
             string fullPathToAlbumArtOnDisk = fileName?.Length >= 1 ? Paths.TempAlbumArtPath + fileName : string.Empty;
 
-            if (!File.Exists(fullPathToAlbumArtOnDisk) && !string.IsNullOrEmpty(lastFmImageWebPath)) 
+            if (!File.Exists(fullPathToAlbumArtOnDisk) && !string.IsNullOrEmpty(lastFmImageUrl)) 
             {
                 using (WebClient webClient = new WebClient())
                 {
-                    webClient.DownloadFile(new Uri(lastFmImageWebPath), fullPathToAlbumArtOnDisk);
+                    webClient.DownloadFile(new Uri(lastFmImageUrl), fullPathToAlbumArtOnDisk);
                 }
             }
 
