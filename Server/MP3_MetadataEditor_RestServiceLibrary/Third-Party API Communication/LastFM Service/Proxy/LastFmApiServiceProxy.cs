@@ -11,11 +11,11 @@ namespace MP3_MetadataEditor_RestServiceLibrary.Proxies
 {
     public class LastFmApiServiceProxy
     {
-        readonly LastFMAPIService lastFmApiService = new LastFMAPIService();
-
         public LastFmServiceResponse GetAlbumArt(LastFMServiceRequest request)
         {
-            return lastFmApiService.GetAlbumArt(request);
+            ILastFMApiService thirdPartyApiCall = new LastFMAPIService();
+
+            return thirdPartyApiCall.GetAlbumArt(request);
         }
     }
 }

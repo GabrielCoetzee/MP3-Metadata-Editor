@@ -215,7 +215,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
         {
             try
             {
-                var proxy = new MP3MetadataEditorServiceProxy();
+                var proxy = new Mp3MetadataEditorServiceProxy();
                 string imageFilePath = proxy.GetAlbumArt(ModelMP3.Artist, ModelMP3.SongTitle).Replace('"', ' ').Replace(Path.DirectorySeparatorChar, ' ');
                 byte[] image = Convert.FromBase64String(imageFilePath);
                 e.Result = image;
@@ -296,7 +296,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
         {
             try
             {
-                var proxy = new MP3MetadataEditorServiceProxy();
+                var proxy = new Mp3MetadataEditorServiceProxy();
                 var request = new MP3MetadataEditorServiceRequest();
                 request.Body = new Body()
                 {
@@ -312,7 +312,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
                     Year = ModelMP3.Year
                 };
 
-                if (proxy.AddMP3(request).StatusCode == System.Net.HttpStatusCode.OK)
+                if (proxy.AddMp3(request).StatusCode == HttpStatusCode.OK)
                     dialogMessage += "\nMP3 details has been successfully added to database.";
             }
             catch (WebException)

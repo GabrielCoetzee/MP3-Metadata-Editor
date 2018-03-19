@@ -1,14 +1,13 @@
-﻿using MP3_MetadataEditor_Client.MP3MetadataEditorService;
-using Newtonsoft.Json;
+﻿using System;
 using System.IO;
 using System.Net;
-using System.ServiceProcess;
 using System.Text;
-using System.Linq;
+using MP3_MetadataEditor_Client.MP3MetadataEditorService;
+using Newtonsoft.Json;
 
 namespace MP3_MetadataEditor_Client.Service_Communication
 {
-    public class MP3MetadataEditorServiceProxy : IMP3MetadataEditorService
+    public class Mp3MetadataEditorService : IMp3MetadataEditorService
     {
         private string getAlbumArtAPIUri = @"http://localhost:8733/api/MP3MetadataEditorService/GetAlbumArt?";
         private string addMP3APIUri = @"http://localhost:8733/api/MP3MetadataEditorService/AddMP3";
@@ -26,10 +25,10 @@ namespace MP3_MetadataEditor_Client.Service_Communication
             }
         }
 
-        public MP3MetadataEditorServiceResponse AddMP3(MP3MetadataEditorServiceRequest request)
+        public MP3MetadataEditorServiceResponse AddMp3(MP3MetadataEditorServiceRequest request)
         {
             string requestData = JsonConvert.SerializeObject(request);
-            byte[] requestDataBytes = Encoding.UTF8.GetBytes(requestData); 
+            byte[] requestDataBytes = Encoding.UTF8.GetBytes(requestData);
 
             HttpWebRequest apiRequest = (HttpWebRequest)WebRequest.Create(addMP3APIUri);
             apiRequest.Method = "POST";
