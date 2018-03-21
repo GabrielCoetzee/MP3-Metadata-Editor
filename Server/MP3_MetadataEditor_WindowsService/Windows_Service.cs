@@ -1,9 +1,10 @@
 ﻿using System.ServiceModel;
 using System.ServiceProcess;
+using MP3_MetadataEditor_RestServiceLibrary;
 
 namespace MP3_MetadataEditor_WindowsService
 {
-    public partial class MP3MetadataEditorWindowsService : ServiceBase
+    public partial class Mp3MetadataEditorWindowsService : ServiceBase
     {
         #region Properties
 
@@ -11,7 +12,7 @@ namespace MP3_MetadataEditor_WindowsService
 
         #endregion Properties
 
-        public MP3MetadataEditorWindowsService()
+        public Mp3MetadataEditorWindowsService()
         {
             InitializeComponent();
         }
@@ -23,7 +24,7 @@ namespace MP3_MetadataEditor_WindowsService
 
         protected override void OnStart(string[] args)
         {
-            serviceHost = new ServiceHost(typeof(MP3_MetadataEditor_RestServiceLibrary.MP3MetadataEditorService));
+            serviceHost = new ServiceHost(typeof(Mp3MetadataEditorService));
             serviceHost.Open();
         }
 

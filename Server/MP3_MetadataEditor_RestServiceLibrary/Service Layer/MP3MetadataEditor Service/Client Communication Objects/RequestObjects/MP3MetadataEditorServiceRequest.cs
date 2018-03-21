@@ -1,14 +1,15 @@
-﻿using Newtonsoft.Json;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
+using MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects;
+using Newtonsoft.Json;
 
-namespace MP3_MetadataEditor_RestServiceLibrary.Album_Art_Service
+namespace MP3_MetadataEditor_RestServiceLibrary.Service_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.RequestObjects
 {
     [DataContract]
-    public class MP3MetadataEditorServiceRequest
+    public class Mp3MetadataEditorServiceRequest : RequestBase
     {
         #region Constructor
 
-        public MP3MetadataEditorServiceRequest(Body body)
+        public Mp3MetadataEditorServiceRequest(Body body)
         {
             Body = body;
         }

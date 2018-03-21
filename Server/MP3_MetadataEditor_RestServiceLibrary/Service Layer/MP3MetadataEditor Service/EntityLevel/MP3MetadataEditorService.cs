@@ -1,22 +1,22 @@
-﻿using MP3_MetadataEditor_RestServiceLibrary.LastFM_Service.Communication_Objects;
-using MP3_MetadataEditor_RestServiceLibrary.LastFM_Service.Communication_Objects.RequestObjects;
-using MP3_MetadataEditor_RestServiceLibrary.LastFM_Service;
-using MP3_MetadataEditor_RestServiceLibrary.Album_Art_Service;
-using MP3_MetadataEditor_Server.Context_Classes;
-using MP3_MetadataEditor_RestServiceLibrary.MP3MetadataEditor_Service.Helpers.Constants;
+﻿using System;
 using System.IO;
-using System.Net;
 using System.Linq;
-using System;
-using MP3_MetadataEditor_Server.Models;
+using System.Net;
+using MP3_MetadataEditor_RestServiceLibrary.MP3MetadataEditor_Service.Helpers.Constants;
 using MP3_MetadataEditor_RestServiceLibrary.MP3MetadataEditor_Service.Helpers.Converters;
-using MP3_MetadataEditor_RestServiceLibrary.Proxies;
+using MP3_MetadataEditor_RestServiceLibrary.Service_Layer.LastFM_Service.Communication_Objects.RequestObjects;
+using MP3_MetadataEditor_RestServiceLibrary.Service_Layer.LastFM_Service.Communication_Objects.ResponseObjects;
+using MP3_MetadataEditor_RestServiceLibrary.Service_Layer.LastFM_Service.Proxy;
+using MP3_MetadataEditor_RestServiceLibrary.Service_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.RequestObjects;
+using MP3_MetadataEditor_RestServiceLibrary.Service_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.ResponseObjects;
+using MP3_MetadataEditor_Server.Context_Classes;
+using MP3_MetadataEditor_Server.Models;
 
 namespace MP3_MetadataEditor_RestServiceLibrary
 {
-    public class MP3MetadataEditorService : IMP3MetadataEditorService
+    public class Mp3MetadataEditorService : IMp3MetadataEditorService
     {
-        public MP3MetadataEditorServiceResponse AddMP3(MP3MetadataEditorServiceRequest request)
+        public Mp3MetadataEditorServiceResponse AddMP3(Mp3MetadataEditorServiceRequest request)
         {
             int success = 0;
 
@@ -44,16 +44,16 @@ namespace MP3_MetadataEditor_RestServiceLibrary
                 }
             }
 
-            return new MP3MetadataEditorServiceResponse(success == 1 ? HttpStatusCode.OK : HttpStatusCode.InternalServerError);
+            return new Mp3MetadataEditorServiceResponse(success == 1 ? HttpStatusCode.OK : HttpStatusCode.InternalServerError);
         }
         public string GetAlbumArt(string artist, string song)
         {
-            var proxy = new LastFmApiServiceProxy();
+            var proxy = new LastFMApiServiceProxy();
 
-            LastFMServiceRequest lastFMServiceRequest = new LastFMServiceRequest() { Artist = artist, Song = song };
-            LastFmServiceResponse lastFMServiceResponse = proxy.GetAlbumArt(lastFMServiceRequest);
+            LastFMServiceRequest lastFmServiceRequest = new LastFMServiceRequest() { Artist = artist, Song = song };
+            LastFMServiceResponse lastFmServiceResponse = proxy.GetAlbumArt(lastFmServiceRequest) as LastFMServiceResponse;
 
-            string lastFmImageUrl = lastFMServiceResponse.album?.image[2].text;
+            string lastFmImageUrl = lastFmServiceResponse.Album?.Image[2].Text;
 
             string fileName = lastFmImageUrl?.Remove(0, lastFmImageUrl.LastIndexOf("/") + 1).TrimEnd('"', '\''); //+1 is to remove slash at the beginning
             string fullPathToAlbumArtOnDisk = fileName?.Length >= 1 ? Paths.TempAlbumArtPath + fileName : string.Empty;

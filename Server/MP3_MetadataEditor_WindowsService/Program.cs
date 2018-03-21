@@ -15,7 +15,7 @@ namespace MP3_MetadataEditor_WindowsService
         static void Main()
         {
             #if DEBUG
-                MP3MetadataEditorWindowsService myWindowsService = new MP3MetadataEditorWindowsService();
+                Mp3MetadataEditorWindowsService myWindowsService = new Mp3MetadataEditorWindowsService();
                 myWindowsService.OnDebug();
                 System.Threading.Thread.Sleep(System.Threading.Timeout.Infinite);
             #else

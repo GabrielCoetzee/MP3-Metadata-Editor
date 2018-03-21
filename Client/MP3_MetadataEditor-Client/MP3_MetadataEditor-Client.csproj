@@ -85,8 +85,8 @@
     <Compile Include="MetadataReaders\Types\MP3MetadataReaderTypes.cs" />
     <Compile Include="MetadataReaders\Interface Implementations\TaglibMP3MetadataReader.cs" />
     <Compile Include="MetadataReaders\Interfaces\IMP3MetadataReader.cs" />
-    <Compile Include="Service Communication\IMp3MetadataEditorService.cs" />
-    <Compile Include="Service Communication\Mp3MetadataEditorService.cs" />
+    <Compile Include="Service Communication\EntityLevel\IMp3MetadataEditorService.cs" />
+    <Compile Include="Service Communication\EntityLevel\Mp3MetadataEditorService.cs" />
     <Compile Include="Service Communication\Proxy\MP3MetadataEditorServiceProxy.cs" />
     <Page Include="MVVM\Views\MP3_MetadataEditor_View.xaml">
       <Generator>MSBuild:Compile</Generator>

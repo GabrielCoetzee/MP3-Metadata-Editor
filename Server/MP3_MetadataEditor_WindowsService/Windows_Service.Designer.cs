@@ -1,6 +1,6 @@
 ﻿namespace MP3_MetadataEditor_WindowsService
 {
-    partial class MP3MetadataEditorWindowsService
+    partial class Mp3MetadataEditorWindowsService
     {
         /// <summary> 
         /// Required designer variable.

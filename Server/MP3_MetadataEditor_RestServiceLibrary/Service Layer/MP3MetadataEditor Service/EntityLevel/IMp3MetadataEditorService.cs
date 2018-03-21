@@ -1,11 +1,12 @@
-﻿using MP3_MetadataEditor_RestServiceLibrary.Album_Art_Service;
-using System.ServiceModel;
+﻿using System.ServiceModel;
 using System.ServiceModel.Web;
+using MP3_MetadataEditor_RestServiceLibrary.Service_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.RequestObjects;
+using MP3_MetadataEditor_RestServiceLibrary.Service_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.ResponseObjects;
 
 namespace MP3_MetadataEditor_RestServiceLibrary
 {
     [ServiceContract]
-    public interface IMP3MetadataEditorService
+    public interface IMp3MetadataEditorService
     {
         [OperationContract]
         [WebInvoke(Method = "POST",
@@ -13,7 +14,7 @@ namespace MP3_MetadataEditor_RestServiceLibrary
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/AddMP3")]
-        MP3MetadataEditorServiceResponse AddMP3(MP3MetadataEditorServiceRequest request);
+        Mp3MetadataEditorServiceResponse AddMP3(Mp3MetadataEditorServiceRequest request);
 
         [OperationContract]
         [WebInvoke(Method = "GET",

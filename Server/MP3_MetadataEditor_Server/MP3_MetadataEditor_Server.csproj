@@ -49,17 +49,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context Classes\MP3DbContext.cs" />
-    <Compile Include="Database Models\MP3.cs" />
-    <Compile Include="Migrations\201802081801199_CreateMP3.cs" />
-    <Compile Include="Migrations\201802081801199_CreateMP3.Designer.cs">
+    <Compile Include="Data Access Layer\Context Classes\MP3DbContext.cs" />
+    <Compile Include="Data Access Layer\Database Models\MP3.cs" />
+    <Compile Include="Data Access Layer\Migrations\201802081801199_CreateMP3.cs" />
+    <Compile Include="Data Access Layer\Migrations\201802081801199_CreateMP3.Designer.cs">
       <DependentUpon>201802081801199_CreateMP3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802081913243_DateAddedFieldAddedtoMP3Model.cs" />
-    <Compile Include="Migrations\201802081913243_DateAddedFieldAddedtoMP3Model.Designer.cs">
+    <Compile Include="Data Access Layer\Migrations\201802081913243_DateAddedFieldAddedtoMP3Model.cs" />
+    <Compile Include="Data Access Layer\Migrations\201802081913243_DateAddedFieldAddedtoMP3Model.Designer.cs">
       <DependentUpon>201802081913243_DateAddedFieldAddedtoMP3Model.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Data Access Layer\Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,10 +69,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802081801199_CreateMP3.resx">
+    <EmbeddedResource Include="Data Access Layer\Migrations\201802081801199_CreateMP3.resx">
       <DependentUpon>201802081801199_CreateMP3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802081913243_DateAddedFieldAddedtoMP3Model.resx">
+    <EmbeddedResource Include="Data Access Layer\Migrations\201802081913243_DateAddedFieldAddedtoMP3Model.resx">
       <DependentUpon>201802081913243_DateAddedFieldAddedtoMP3Model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
