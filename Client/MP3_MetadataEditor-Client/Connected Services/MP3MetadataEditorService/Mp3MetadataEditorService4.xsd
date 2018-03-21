@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.ResponseObjects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.ResponseObjects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/api/Mp3MetadataEditorService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Net" />
+  <xs:import schemaLocation="http://localhost:8733/api/Mp3MetadataEditorService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" />
+  <xs:complexType name="Mp3MetadataEditorServiceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" base="q1:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Net" minOccurs="0" name="StatusCode" type="q2:HttpStatusCode" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Mp3MetadataEditorServiceResponse" nillable="true" type="tns:Mp3MetadataEditorServiceResponse" />
+</xs:schema>

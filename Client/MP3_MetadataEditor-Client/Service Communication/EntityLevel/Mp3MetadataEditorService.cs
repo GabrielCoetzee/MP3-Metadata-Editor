@@ -25,7 +25,7 @@ namespace MP3_MetadataEditor_Client.Service_Communication
             }
         }
 
-        public MP3MetadataEditorServiceResponse AddMp3(MP3MetadataEditorServiceRequest request)
+        public Mp3MetadataEditorServiceResponse AddMp3(Mp3MetadataEditorServiceRequest request)
         {
             string requestData = JsonConvert.SerializeObject(request);
             byte[] requestDataBytes = Encoding.UTF8.GetBytes(requestData);
@@ -44,7 +44,7 @@ namespace MP3_MetadataEditor_Client.Service_Communication
             using (Stream stream = response.GetResponseStream())
             using (StreamReader reader = new StreamReader(stream))
             {
-                return JsonConvert.DeserializeObject<MP3MetadataEditorServiceResponse>(reader.ReadToEnd());
+                return JsonConvert.DeserializeObject<Mp3MetadataEditorServiceResponse>(reader.ReadToEnd());
             }
         }
     }

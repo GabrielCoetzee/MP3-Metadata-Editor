@@ -297,7 +297,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             try
             {
                 var proxy = new Mp3MetadataEditorServiceProxy();
-                var request = new MP3MetadataEditorServiceRequest();
+                var request = new Mp3MetadataEditorServiceRequest();
                 request.Body = new Body()
                 {
                     Album = ModelMP3.Album,

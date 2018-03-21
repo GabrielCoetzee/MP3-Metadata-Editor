@@ -15,16 +15,14 @@ namespace MP3_MetadataEditor_Client.MP3MetadataEditorService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MP3MetadataEditorServiceRequest", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Alb" +
-        "um_Art_Service")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RequestBase", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
+        "vice_Layer.Base_Communication_Objects")]
     [System.SerializableAttribute()]
-    public partial class MP3MetadataEditorServiceRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MP3_MetadataEditor_Client.MP3MetadataEditorService.Mp3MetadataEditorServiceRequest))]
+    public partial class RequestBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MP3_MetadataEditor_Client.MP3MetadataEditorService.Body BodyField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -33,19 +31,6 @@ namespace MP3_MetadataEditor_Client.MP3MetadataEditorService {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MP3_MetadataEditor_Client.MP3MetadataEditorService.Body Body {
-            get {
-                return this.BodyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BodyField, value) != true)) {
-                    this.BodyField = value;
-                    this.RaisePropertyChanged("Body");
-                }
             }
         }
         
@@ -61,8 +46,34 @@ namespace MP3_MetadataEditor_Client.MP3MetadataEditorService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Body", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Alb" +
-        "um_Art_Service")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Mp3MetadataEditorServiceRequest", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
+        "vice_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.RequestObjects" +
+        "")]
+    [System.SerializableAttribute()]
+    public partial class Mp3MetadataEditorServiceRequest : MP3_MetadataEditor_Client.MP3MetadataEditorService.RequestBase {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MP3_MetadataEditor_Client.MP3MetadataEditorService.Body BodyField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MP3_MetadataEditor_Client.MP3MetadataEditorService.Body Body {
+            get {
+                return this.BodyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BodyField, value) != true)) {
+                    this.BodyField = value;
+                    this.RaisePropertyChanged("Body");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Body", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
+        "vice_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.RequestObjects" +
+        "")]
     [System.SerializableAttribute()]
     public partial class Body : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -267,16 +278,14 @@ namespace MP3_MetadataEditor_Client.MP3MetadataEditorService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MP3MetadataEditorServiceResponse", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Alb" +
-        "um_Art_Service")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResponseBase", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
+        "vice_Layer.Base_Communication_Objects")]
     [System.SerializableAttribute()]
-    public partial class MP3MetadataEditorServiceResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MP3_MetadataEditor_Client.MP3MetadataEditorService.Mp3MetadataEditorServiceResponse))]
+    public partial class ResponseBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Net.HttpStatusCode StatusCodeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -285,19 +294,6 @@ namespace MP3_MetadataEditor_Client.MP3MetadataEditorService {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Net.HttpStatusCode StatusCode {
-            get {
-                return this.StatusCodeField;
-            }
-            set {
-                if ((this.StatusCodeField.Equals(value) != true)) {
-                    this.StatusCodeField = value;
-                    this.RaisePropertyChanged("StatusCode");
-                }
             }
         }
         
@@ -311,45 +307,70 @@ namespace MP3_MetadataEditor_Client.MP3MetadataEditorService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Mp3MetadataEditorServiceResponse", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
+        "vice_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.ResponseObject" +
+        "s")]
+    [System.SerializableAttribute()]
+    public partial class Mp3MetadataEditorServiceResponse : MP3_MetadataEditor_Client.MP3MetadataEditorService.ResponseBase {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Net.HttpStatusCode StatusCodeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Net.HttpStatusCode StatusCode {
+            get {
+                return this.StatusCodeField;
+            }
+            set {
+                if ((this.StatusCodeField.Equals(value) != true)) {
+                    this.StatusCodeField = value;
+                    this.RaisePropertyChanged("StatusCode");
+                }
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MP3MetadataEditorService.IMP3MetadataEditorService")]
-    public interface IMP3MetadataEditorService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MP3MetadataEditorService.IMp3MetadataEditorService")]
+    public interface IMp3MetadataEditorService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMP3MetadataEditorService/AddMP3", ReplyAction="http://tempuri.org/IMP3MetadataEditorService/AddMP3Response")]
-        MP3_MetadataEditor_Client.MP3MetadataEditorService.MP3MetadataEditorServiceResponse AddMP3(MP3_MetadataEditor_Client.MP3MetadataEditorService.MP3MetadataEditorServiceRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMp3MetadataEditorService/AddMP3", ReplyAction="http://tempuri.org/IMp3MetadataEditorService/AddMP3Response")]
+        MP3_MetadataEditor_Client.MP3MetadataEditorService.Mp3MetadataEditorServiceResponse AddMP3(MP3_MetadataEditor_Client.MP3MetadataEditorService.Mp3MetadataEditorServiceRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMP3MetadataEditorService/GetAlbumArt", ReplyAction="http://tempuri.org/IMP3MetadataEditorService/GetAlbumArtResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMp3MetadataEditorService/GetAlbumArt", ReplyAction="http://tempuri.org/IMp3MetadataEditorService/GetAlbumArtResponse")]
         string GetAlbumArt(string artist, string song);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IMP3MetadataEditorServiceChannel : MP3_MetadataEditor_Client.MP3MetadataEditorService.IMP3MetadataEditorService, System.ServiceModel.IClientChannel {
+    public interface IMp3MetadataEditorServiceChannel : MP3_MetadataEditor_Client.MP3MetadataEditorService.IMp3MetadataEditorService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class MP3MetadataEditorServiceClient : System.ServiceModel.ClientBase<MP3_MetadataEditor_Client.MP3MetadataEditorService.IMP3MetadataEditorService>, MP3_MetadataEditor_Client.MP3MetadataEditorService.IMP3MetadataEditorService {
+    public partial class Mp3MetadataEditorServiceClient : System.ServiceModel.ClientBase<MP3_MetadataEditor_Client.MP3MetadataEditorService.IMp3MetadataEditorService>, MP3_MetadataEditor_Client.MP3MetadataEditorService.IMp3MetadataEditorService {
         
-        public MP3MetadataEditorServiceClient() {
+        public Mp3MetadataEditorServiceClient() {
         }
         
-        public MP3MetadataEditorServiceClient(string endpointConfigurationName) : 
+        public Mp3MetadataEditorServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public MP3MetadataEditorServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public Mp3MetadataEditorServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public MP3MetadataEditorServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public Mp3MetadataEditorServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public MP3MetadataEditorServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public Mp3MetadataEditorServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public MP3_MetadataEditor_Client.MP3MetadataEditorService.MP3MetadataEditorServiceResponse AddMP3(MP3_MetadataEditor_Client.MP3MetadataEditorService.MP3MetadataEditorServiceRequest request) {
+        public MP3_MetadataEditor_Client.MP3MetadataEditorService.Mp3MetadataEditorServiceResponse AddMP3(MP3_MetadataEditor_Client.MP3MetadataEditorService.Mp3MetadataEditorServiceRequest request) {
             return base.Channel.AddMP3(request);
         }
         

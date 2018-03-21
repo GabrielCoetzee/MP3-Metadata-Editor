@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.RequestObjects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.RequestObjects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/api/Mp3MetadataEditorService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" />
+  <xs:complexType name="Mp3MetadataEditorServiceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" base="q1:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Body" nillable="true" type="tns:Body" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Mp3MetadataEditorServiceRequest" nillable="true" type="tns:Mp3MetadataEditorServiceRequest" />
+  <xs:complexType name="Body">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Album" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AlbumArt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Artist" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Composer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Genre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Lyrics" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SongTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrackNumber" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Year" nillable="true" type="xs:unsignedInt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Body" nillable="true" type="tns:Body" />
+</xs:schema>

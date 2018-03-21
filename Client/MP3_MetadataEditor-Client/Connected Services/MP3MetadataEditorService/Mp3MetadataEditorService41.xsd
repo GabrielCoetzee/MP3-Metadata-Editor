@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="RequestBase">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="RequestBase" nillable="true" type="tns:RequestBase" />
+  <xs:complexType name="ResponseBase">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="ResponseBase" nillable="true" type="tns:ResponseBase" />
+</xs:schema>

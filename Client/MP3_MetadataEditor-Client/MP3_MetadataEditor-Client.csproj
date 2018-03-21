@@ -121,20 +121,26 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\MP3MetadataEditorService\MP3MetadataEditorService.wsdl" />
-    <None Include="Connected Services\MP3MetadataEditorService\MP3MetadataEditorService.xsd">
+    <None Include="Connected Services\MP3MetadataEditorService\Mp3MetadataEditorService1.wsdl" />
+    <None Include="Connected Services\MP3MetadataEditorService\Mp3MetadataEditorService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\MP3MetadataEditorService\MP3MetadataEditorService1.xsd">
+    <None Include="Connected Services\MP3MetadataEditorService\Mp3MetadataEditorService41.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\MP3MetadataEditorService\MP3MetadataEditorService2.xsd">
+    <None Include="Connected Services\MP3MetadataEditorService\Mp3MetadataEditorService42.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\MP3MetadataEditorService\MP3MetadataEditorService3.xsd">
+    <None Include="Connected Services\MP3MetadataEditorService\Mp3MetadataEditorService43.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\MP3MetadataEditorService\MP3_MetadataEditor_Client.MP3MetadataEditorService.MP3MetadataEditorServiceResponse.datasource">
+    <None Include="Connected Services\MP3MetadataEditorService\Mp3MetadataEditorService44.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MP3MetadataEditorService\Mp3MetadataEditorService45.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MP3MetadataEditorService\MP3_MetadataEditor_Client.MP3MetadataEditorService.Mp3MetadataEditorServiceResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -158,9 +164,6 @@
     <WCFMetadataStorage Include="Connected Services\MP3MetadataEditorService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\MP3MetadataEditorService\MP3MetadataEditorService.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\MP3MetadataEditorService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +174,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MP3MetadataEditorService\Mp3MetadataEditorService1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -26,7 +26,7 @@ namespace MP3_MetadataEditor_Client.Service_Communication
             return service.GetAlbumArt(artist, song);
         }
 
-        public MP3MetadataEditorServiceResponse AddMp3(MP3MetadataEditorServiceRequest request)
+        public Mp3MetadataEditorServiceResponse AddMp3(Mp3MetadataEditorServiceRequest request)
         {
             return service.AddMp3(request);
         }

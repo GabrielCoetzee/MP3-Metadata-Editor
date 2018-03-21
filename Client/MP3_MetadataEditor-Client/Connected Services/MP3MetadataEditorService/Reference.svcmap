@@ -21,12 +21,14 @@
     <MetadataSource Address="http://localhost:8733/api/MP3MetadataEditorService" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="MP3MetadataEditorService.xsd" MetadataType="Schema" ID="7b9bfe15-305c-4eea-a7bd-0c7cbc60a3f2" SourceId="1" SourceUrl="http://localhost:8733/api/MP3MetadataEditorService?xsd=xsd3" />
-    <MetadataFile FileName="MP3MetadataEditorService.disco" MetadataType="Disco" ID="8deacf40-9d6e-42d1-9826-7a2b1fe87064" SourceId="1" SourceUrl="http://localhost:8733/api/MP3MetadataEditorService?disco" />
-    <MetadataFile FileName="MP3MetadataEditorService1.xsd" MetadataType="Schema" ID="3bc37832-7764-488e-a09d-066fe4f8de33" SourceId="1" SourceUrl="http://localhost:8733/api/MP3MetadataEditorService?xsd=xsd0" />
-    <MetadataFile FileName="MP3MetadataEditorService2.xsd" MetadataType="Schema" ID="5b9d9b63-0153-4884-bd85-433cd1b14ff6" SourceId="1" SourceUrl="http://localhost:8733/api/MP3MetadataEditorService?xsd=xsd2" />
-    <MetadataFile FileName="MP3MetadataEditorService3.xsd" MetadataType="Schema" ID="daa3f653-e14a-4335-b470-ad8033ee3ddd" SourceId="1" SourceUrl="http://localhost:8733/api/MP3MetadataEditorService?xsd=xsd1" />
-    <MetadataFile FileName="MP3MetadataEditorService.wsdl" MetadataType="Wsdl" ID="97f1bedd-83fc-48a8-9500-42b310b7531c" SourceId="1" SourceUrl="http://localhost:8733/api/MP3MetadataEditorService?wsdl" />
+    <MetadataFile FileName="Mp3MetadataEditorService4.xsd" MetadataType="Schema" ID="8c8c9e72-c8ab-488e-8d67-28eecab0b75a" SourceId="1" SourceUrl="http://localhost:8733/api/Mp3MetadataEditorService?xsd=xsd4" />
+    <MetadataFile FileName="Mp3MetadataEditorService1.wsdl" MetadataType="Wsdl" ID="986c7ba0-6a9b-489a-a050-d9a10fccaccc" SourceId="1" SourceUrl="http://localhost:8733/api/Mp3MetadataEditorService?wsdl" />
+    <MetadataFile FileName="Mp3MetadataEditorService1.disco" MetadataType="Disco" ID="6849ec5e-2a88-4d8c-885b-a813b650a38e" SourceId="1" SourceUrl="http://localhost:8733/api/Mp3MetadataEditorService?disco" />
+    <MetadataFile FileName="Mp3MetadataEditorService41.xsd" MetadataType="Schema" ID="7eee0b88-2049-4933-a134-9a31bbc1c66c" SourceId="1" SourceUrl="http://localhost:8733/api/Mp3MetadataEditorService?xsd=xsd3" />
+    <MetadataFile FileName="Mp3MetadataEditorService42.xsd" MetadataType="Schema" ID="b681af2a-9c9c-45f1-bf87-40ee6b0550e2" SourceId="1" SourceUrl="http://localhost:8733/api/Mp3MetadataEditorService?xsd=xsd0" />
+    <MetadataFile FileName="Mp3MetadataEditorService43.xsd" MetadataType="Schema" ID="dd13881d-002a-45c2-af4a-be754907e9dd" SourceId="1" SourceUrl="http://localhost:8733/api/Mp3MetadataEditorService?xsd=xsd2" />
+    <MetadataFile FileName="Mp3MetadataEditorService44.xsd" MetadataType="Schema" ID="137b3c21-6303-4291-9c26-cdeb3b4e5af4" SourceId="1" SourceUrl="http://localhost:8733/api/Mp3MetadataEditorService?xsd=xsd1" />
+    <MetadataFile FileName="Mp3MetadataEditorService45.xsd" MetadataType="Schema" ID="2dba5334-5d6a-46a8-b7ba-8547b993e44f" SourceId="1" SourceUrl="http://localhost:8733/api/Mp3MetadataEditorService?xsd=xsd5" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
