@@ -1,7 +1,7 @@
 # MP3_Metadata_Editor
 C# - WPF - MVVM Project to modify MP3 metadata such as album art, lyrics, comments, song title etc.
 
-This is a project I made in my free time, in order to apply a few design patterns and technologies that I have learned. While I did keep the SOLID principles in mind while coding, and try to follow them, whether this project is an violation of any of them, I`m not yet sure, but I am never truly done with any of my personal projects. As I improve, and become a better developer, I will come back to each of my projects, and improve upon them, or start over entirely.
+This is a project I made in my free time, in order to apply a few design patterns and technologies that I have learned. 
 
 This project consists both of a Client and Server.
  
