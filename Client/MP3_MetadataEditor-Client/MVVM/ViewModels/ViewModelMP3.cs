@@ -44,7 +44,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             set
             {
                 _modelMP3 = value;
-                OnPropertyChanged(Helpers.Constants.Properties.ModelMP3);
+                OnPropertyChanged(nameof(ModelMP3));
             }
         }
 
@@ -54,7 +54,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             set
             {
                 _downloadAlbumArtCommand = value;
-                OnPropertyChanged(Helpers.Constants.Commands.DownloadAlbumArtCommand);
+                OnPropertyChanged(nameof(DownloadAlbumArtCommand));
             }
         }
 
@@ -65,7 +65,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             set
             {
                 _saveMP3Command = value;
-                OnPropertyChanged(Helpers.Constants.Commands.SaveMP3Command);
+                OnPropertyChanged(nameof(SaveMP3Command));
             }
         }
 
@@ -75,7 +75,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             set
             {
                 _loadMP3Command = value;
-                OnPropertyChanged(Helpers.Constants.Commands.LoadMP3Command);
+                OnPropertyChanged(nameof(LoadMP3Command));
             }
         }
 
@@ -85,7 +85,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             set
             {
                 _browseAlbumArtCommand = value;
-                OnPropertyChanged(Helpers.Constants.Commands.BrowseAlbumArtCommand);
+                OnPropertyChanged(nameof(BrowseAlbumArtCommand));
             }
         }
 
@@ -95,7 +95,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             set
             {
                 _clearAlbumArtCommand = value;
-                OnPropertyChanged(Helpers.Constants.Commands.ClearAlbumArtCommand);
+                OnPropertyChanged(nameof(ClearAlbumArtCommand));
             }
         }
 

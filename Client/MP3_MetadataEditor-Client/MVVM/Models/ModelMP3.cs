@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MP3_MetadataEditor_Client.MVVM.Models
 {
@@ -15,8 +11,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
 
         public void OnPropertyChanged(string property)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
         public string Error
         {
@@ -34,19 +29,19 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
 
                 switch (property)
                 {
-                    case Helpers.Constants.Properties.Year:
+                    case nameof(Year):
                         if (string.IsNullOrEmpty(_year.ToString()) || string.IsNullOrWhiteSpace(_year.ToString()) || _year.ToString().Length != 4)
                             error = Helpers.Constants.ValidationErrors.Year;
                         break;
-                    case Helpers.Constants.Properties.TrackNumber:
+                    case nameof(TrackNumber):
                         if (string.IsNullOrEmpty(_trackNumber.ToString()) || string.IsNullOrWhiteSpace(_trackNumber.ToString()) || _trackNumber == 0)
                             error = Helpers.Constants.ValidationErrors.TrackNumber;
                         break;
-                    case Helpers.Constants.Properties.Artist:
+                    case nameof(Artist):
                         if (string.IsNullOrEmpty(_artist))
                             error = Helpers.Constants.ValidationErrors.Artist;
                         break;
-                    case Helpers.Constants.Properties.SongTitle:
+                    case nameof(SongTitle):
                         if (string.IsNullOrEmpty(_songTitle))
                             error = Helpers.Constants.ValidationErrors.SongTitle;
                         break;
@@ -99,7 +94,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
             set
             {
                 _isBusySavingMP3 = value;
-                OnPropertyChanged(Helpers.Constants.Properties.IsBusySavingMP3);
+                OnPropertyChanged(nameof(IsBusySavingMP3));
             }
         }
 
@@ -110,7 +105,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
             set
             {
                 _isBusyDownloadingAlbumArt = value;
-                OnPropertyChanged(Helpers.Constants.Properties.IsBusyDownloadingAlbumArt);
+                OnPropertyChanged(nameof(IsBusyDownloadingAlbumArt));
             }
         }
 
@@ -120,7 +115,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
             set
             {
                 _displayMP3Path = value;
-                OnPropertyChanged(Helpers.Constants.Properties.DisplayMP3Path);
+                OnPropertyChanged(nameof(DisplayMP3Path));
             }
         }
 
@@ -130,7 +125,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
             set
             {
                 _fullMP3Path = value;
-                OnPropertyChanged(Helpers.Constants.Properties.FullMP3Path);
+                OnPropertyChanged(nameof(FullMP3Path));
             }
         }
 
@@ -140,7 +135,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
             set
             {
                 _albumArt = value;
-                OnPropertyChanged(Helpers.Constants.Properties.AlbumArt);
+                OnPropertyChanged(nameof(AlbumArt));
             }
         }
 
@@ -150,7 +145,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
             set
             {
                 _album = value;
-                OnPropertyChanged(Helpers.Constants.Properties.Album);
+                OnPropertyChanged(nameof(Album));
             }
         }
         public string Artist
@@ -159,7 +154,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
             set
             {
                 _artist = value;
-                OnPropertyChanged(Helpers.Constants.Properties.Artist);
+                OnPropertyChanged(nameof(Artist));
             }
         }
 
@@ -169,7 +164,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
             set
             {
                 _genre = value;
-                OnPropertyChanged(Helpers.Constants.Properties.Genre);
+                OnPropertyChanged(nameof(Genre));
             }
         }
 
@@ -179,7 +174,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
             set
             {
                 _comments = value;
-                OnPropertyChanged(Helpers.Constants.Properties.Comments);
+                OnPropertyChanged(nameof(Comments));
             }
         }
 
@@ -189,7 +184,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
             set
             {
                 _trackNumber = value;
-                OnPropertyChanged(Helpers.Constants.Properties.TrackNumber);
+                OnPropertyChanged(nameof(TrackNumber));
             }
         }
 
@@ -199,7 +194,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
             set
             {
                 _year = value;
-                OnPropertyChanged(Helpers.Constants.Properties.Year);
+                OnPropertyChanged(nameof(Year));
             }
         }
 
@@ -209,7 +204,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
             set
             {
                 _lyrics = value;
-                OnPropertyChanged(Helpers.Constants.Properties.Lyrics);
+                OnPropertyChanged(nameof(Lyrics));
             }
         }
 
@@ -219,7 +214,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
             set
             {
                 _composer = value;
-                OnPropertyChanged(Helpers.Constants.Properties.Composer);
+                OnPropertyChanged(nameof(Composer));
             }
         }
 
@@ -229,7 +224,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
             set
             {
                 _songTitle = value;
-                OnPropertyChanged(Helpers.Constants.Properties.SongTitle);
+                OnPropertyChanged(nameof(SongTitle));
             }
         }
 

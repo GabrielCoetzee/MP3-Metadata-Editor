@@ -74,11 +74,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Command Classes\RelayCommand.cs" />
-    <Compile Include="Helpers\Command Classes\RelayCommand_Async.cs" />
-    <Compile Include="Helpers\Constants\Commands.cs" />
+    <Compile Include="Helpers\Custom Command Classes\RelayCommand.cs" />
+    <Compile Include="Helpers\Custom Command Classes\RelayCommand_Async.cs" />
     <Compile Include="Helpers\Constants\Paths.cs" />
-    <Compile Include="Helpers\Constants\Properties.cs" />
     <Compile Include="Helpers\Constants\ValidationErrors.cs" />
     <Compile Include="Helpers\Converters\BinaryImageConverter.cs" />
     <Compile Include="MetadataReaders\Factory\MP3MetadataReaderFactory.cs" />
