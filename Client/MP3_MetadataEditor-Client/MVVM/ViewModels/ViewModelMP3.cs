@@ -335,7 +335,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             bool? result = chooseMP3.ShowDialog();
 
             if (result ?? true)
-                ModelMP3 = _mp3MetadataReader.GetMP3Metadata(chooseMP3.FileName, chooseMP3.SafeFileName);
+                ModelMP3 = _mp3MetadataReader.GetMP3Metadata(chooseMP3.FileName);
         }
 
         private void LoadAlbumArt()

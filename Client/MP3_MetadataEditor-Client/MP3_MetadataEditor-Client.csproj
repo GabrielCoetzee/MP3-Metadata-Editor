@@ -86,7 +86,7 @@
     <Compile Include="Service Communication\EntityLevel\IMp3MetadataEditorService.cs" />
     <Compile Include="Service Communication\EntityLevel\Mp3MetadataEditorService.cs" />
     <Compile Include="Service Communication\Proxy\MP3MetadataEditorServiceProxy.cs" />
-    <Page Include="MVVM\Views\MP3_MetadataEditor_View.xaml">
+    <Page Include="MVVM\Views\ViewMP3.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -96,8 +96,8 @@
     </Compile>
     <Compile Include="MVVM\Models\ModelMP3.cs" />
     <Compile Include="MVVM\ViewModels\ViewModelMP3.cs" />
-    <Compile Include="MVVM\Views\MP3_MetadataEditor_View.xaml.cs">
-      <DependentUpon>MP3_MetadataEditor_View.xaml</DependentUpon>
+    <Compile Include="MVVM\Views\ViewMP3.xaml.cs">
+      <DependentUpon>ViewMP3.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

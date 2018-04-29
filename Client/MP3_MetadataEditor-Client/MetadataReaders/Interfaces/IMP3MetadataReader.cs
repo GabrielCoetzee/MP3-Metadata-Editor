@@ -4,7 +4,7 @@ namespace MP3_MetadataEditor_Client.Logic.Interfaces
 {
     public interface IMP3MetadataReader
     {
-        ModelMP3 GetMP3Metadata(string fullpath, string displayPath);
+        ModelMP3 GetMP3Metadata(string path);
 
         void SaveMP3(ModelMP3 metadata);
 

@@ -1,7 +1,9 @@
-﻿using MP3_MetadataEditor_Client.Helpers.Converters;
+﻿using System.IO;
+using MP3_MetadataEditor_Client.Helpers.Converters;
 using MP3_MetadataEditor_Client.Logic.Interfaces;
 using MP3_MetadataEditor_Client.MVVM.Models;
 using TagLib;
+using File = TagLib.File;
 
 namespace MP3_MetadataEditor_Client.Logic.Interface_Implementations
 {
@@ -27,9 +29,9 @@ namespace MP3_MetadataEditor_Client.Logic.Interface_Implementations
             _taglibMp3MetadataReader.Dispose();
         }
 
-        public ModelMP3 GetMP3Metadata(string fullPath, string displayPath)
+        public ModelMP3 GetMP3Metadata(string path)
         {
-            _taglibMp3MetadataReader = File.Create(fullPath);
+            _taglibMp3MetadataReader = File.Create(path);
 
             _metadata.AlbumArt = _taglibMp3MetadataReader.Tag.Pictures.Length >= 1 ? _taglibMp3MetadataReader.Tag.Pictures[0].Data.Data : null;
             _metadata.Album = _taglibMp3MetadataReader.Tag.Album;
@@ -41,8 +43,8 @@ namespace MP3_MetadataEditor_Client.Logic.Interface_Implementations
             _metadata.Lyrics = _taglibMp3MetadataReader.Tag.Lyrics;
             _metadata.Composer = _taglibMp3MetadataReader.Tag.FirstComposer;
             _metadata.SongTitle = _taglibMp3MetadataReader.Tag.Title;
-            _metadata.FullMP3Path = fullPath;
-            _metadata.DisplayMP3Path = displayPath;
+            _metadata.FullMP3Path = path;
+            _metadata.DisplayMP3Path = Path.GetFileName(path);
 
             return Metadata;
         }
