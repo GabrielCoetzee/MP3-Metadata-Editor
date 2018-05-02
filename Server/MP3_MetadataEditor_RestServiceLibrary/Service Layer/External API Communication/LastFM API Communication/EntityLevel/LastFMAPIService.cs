@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace MP3_MetadataEditor_RestServiceLibrary.Service_Layer.LastFM_Service.EntityLevel
 {
-    public class LastFMApiService : IThirdPartyAPI
+    public class LastFmApiService : ICommunicateWithExternalApi
     {
         public ResponseBase GetAlbumArt(RequestBase req)
         {

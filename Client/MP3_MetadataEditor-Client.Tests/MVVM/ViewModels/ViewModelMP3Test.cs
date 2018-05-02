@@ -14,17 +14,17 @@ namespace MP3_MetadataEditor_Client.Tests.MVVM.ViewModels
         [TestMethod]
         public void MP3MetadataReader_Returned_Via_Factory_Should_Not_Be_Null()
         {
-            IMP3MetadataReader _mp3MetadataReader =  Mp3MetadataReaderFactory.Instance.GetMp3MetadataReader((int)MP3MetadataReaderTypes.Mp3MetadataReaders.Taglib);
+            IModifyMp3Metadata modifyMp3Metadata =  Mp3MetadataEditorFactory.Instance.GetMp3MetadataEditor(MP3MetadataReaderTypes.Mp3MetadataReaders.Taglib);
 
-            Assert.IsNotNull(_mp3MetadataReader);
+            Assert.IsNotNull(modifyMp3Metadata);
         }
 
         [TestMethod]
         public void MP3MetadataReader_Returned_Via_Factory_Should_Be_Instance_Of_IMP3metadataReader()
         {
-            IMP3MetadataReader _mp3MetadataReader = Mp3MetadataReaderFactory.Instance.GetMp3MetadataReader((int)MP3MetadataReaderTypes.Mp3MetadataReaders.Taglib);
+            IModifyMp3Metadata modifyMp3Metadata = Mp3MetadataEditorFactory.Instance.GetMp3MetadataEditor(MP3MetadataReaderTypes.Mp3MetadataReaders.Taglib);
 
-            Assert.IsInstanceOfType(_mp3MetadataReader, typeof(IMP3MetadataReader));
+            Assert.IsInstanceOfType(modifyMp3Metadata, typeof(IModifyMp3Metadata));
         }
 
         [TestMethod]

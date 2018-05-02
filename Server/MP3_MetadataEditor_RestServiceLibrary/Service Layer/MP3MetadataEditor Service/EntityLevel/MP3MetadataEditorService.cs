@@ -48,12 +48,12 @@ namespace MP3_MetadataEditor_RestServiceLibrary
         }
         public string GetAlbumArt(string artist, string song)
         {
-            var proxy = new LastFMApiServiceProxy();
+            var proxy = new LastFmApiServiceProxy();
 
             LastFMServiceRequest lastFmServiceRequest = new LastFMServiceRequest() { Artist = artist, Song = song };
             LastFMServiceResponse lastFmServiceResponse = proxy.GetAlbumArt(lastFmServiceRequest) as LastFMServiceResponse;
 
-            string lastFmImageUrl = lastFmServiceResponse.Album?.Image[2].Text;
+            string lastFmImageUrl = lastFmServiceResponse?.Album?.Image[2].Text;
 
             string fileName = lastFmImageUrl?.Remove(0, lastFmImageUrl.LastIndexOf("/") + 1).TrimEnd('"', '\''); //+1 is to remove slash at the beginning
             string fullPathToAlbumArtOnDisk = fileName?.Length >= 1 ? Paths.TempAlbumArtPath + fileName : string.Empty;

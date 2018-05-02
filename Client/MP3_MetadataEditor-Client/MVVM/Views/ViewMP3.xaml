@@ -6,7 +6,7 @@
         xmlns:converts="clr-namespace:MP3_MetadataEditor_Client.Helpers.Converters"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="MP3_MetadataEditor" Height="846.071" Width="525" Background="Black" MinHeight="846.071" MinWidth="525">
+        Title="MP3_MP3Editor" Height="846.071" Width="525" Background="Black" MinHeight="846.071" MinWidth="525">
 
     <Window.Resources>
         <converts:BinaryImageConverter x:Key="ImageConverter" />
@@ -44,7 +44,7 @@
         </Grid.RowDefinitions>
 
         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" LastChildFill="True" >
-            <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" DockPanel.Dock="Top" Margin="5" Foreground="White" FontSize="18">MP3 Metadata Editor</Label>
+            <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" DockPanel.Dock="Top" Margin="5" Foreground="White" FontSize="18">MP3 MP3 Editor</Label>
         </DockPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">

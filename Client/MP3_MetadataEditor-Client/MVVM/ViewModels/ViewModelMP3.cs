@@ -36,7 +36,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
         private ICommand _saveMP3Command;
         private ICommand _clearAlbumArtCommand;
         private ICommand _downloadAlbumArtCommand;
-        private IMP3MetadataReader _mp3MetadataReader;
+        private IModifyMp3Metadata _modifyMp3Metadata;
 
         public ModelMP3 ModelMP3
         {
@@ -106,7 +106,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
         public ViewModelMP3()
         {
             InitializeCommands();
-            GetMP3MetadataReader();
+            GetMP3MetadataEditor();
         }
 
         #endregion Constructor
@@ -122,9 +122,9 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             DownloadAlbumArtCommand = new RelayCommand(DownloadAlbumArtCommand_Execute, DownloadAlbumArtCommand_CanExecute);
         }
 
-        private void GetMP3MetadataReader()
+        private void GetMP3MetadataEditor()
         {
-            _mp3MetadataReader = Mp3MetadataReaderFactory.Instance.GetMp3MetadataReader((int)MP3MetadataReaderTypes.Mp3MetadataReaders.Taglib);
+            _modifyMp3Metadata = Mp3MetadataEditorFactory.Instance.GetMp3MetadataEditor(MP3MetadataReaderTypes.Mp3MetadataReaders.Taglib);
         }
 
         #endregion Initialization
@@ -234,7 +234,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
                 ModelMP3.AlbumArt = albumArt;
             else
                 System.Windows.Forms.MessageBox.Show(
-                    $"Unable to locate album art for {ModelMP3.Artist} - {ModelMP3.SongTitle}.\nPlease verify that MP3 Metadata Editor Windows Service is running.", "No Album Art Found", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation);
+                    $"Unable to locate album art for {ModelMP3.Artist} - {ModelMP3.SongTitle}.\nPlease verify that MP3 MP3 Editor Windows Service is running.", "No Album Art Found", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation);
 
             ModelMP3.IsBusyDownloadingAlbumArt = false;
 
@@ -279,7 +279,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
         {
             try
             {
-                _mp3MetadataReader.SaveMP3(ModelMP3);
+                _modifyMp3Metadata.SaveMP3(ModelMP3);
                 dialogMessage += "MP3 file has been successfully updated.";
             }
             catch (IOException)
@@ -288,7 +288,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             }
             finally
             {
-                _mp3MetadataReader.Dispose();
+                _modifyMp3Metadata.Dispose();
             }
         }
 
@@ -317,7 +317,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             }
             catch (WebException)
             {
-                //dialogMessage += "\nMP3 details was not saved to database. MP3 Metadata Editor Windows Service is not running.";
+                //dialogMessage += "\nMP3 details was not saved to database. MP3 MP3 Editor Windows Service is not running.";
             }
 
 
@@ -335,7 +335,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             bool? result = chooseMP3.ShowDialog();
 
             if (result ?? true)
-                ModelMP3 = _mp3MetadataReader.GetMP3Metadata(chooseMP3.FileName);
+                ModelMP3 = _modifyMp3Metadata.GetMP3Metadata(chooseMP3.FileName);
         }
 
         private void LoadAlbumArt()

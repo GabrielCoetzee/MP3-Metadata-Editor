@@ -6,7 +6,7 @@ namespace MP3_MetadataEditor_Client.Service_Communication
     {
         #region Properties
 
-        private readonly IMp3MetadataEditorService service;
+        private readonly IMp3MetadataEditorService _service;
 
         #endregion
 
@@ -14,7 +14,7 @@ namespace MP3_MetadataEditor_Client.Service_Communication
 
         public Mp3MetadataEditorServiceProxy()
         {
-            service = new Mp3MetadataEditorService();
+            _service = new Mp3MetadataEditorService();
         }
 
         #endregion
@@ -23,12 +23,12 @@ namespace MP3_MetadataEditor_Client.Service_Communication
 
         public string GetAlbumArt(string artist, string song)
         {
-            return service.GetAlbumArt(artist, song);
+            return _service.GetAlbumArt(artist, song);
         }
 
         public Mp3MetadataEditorServiceResponse AddMp3(Mp3MetadataEditorServiceRequest request)
         {
-            return service.AddMp3(request);
+            return _service.AddMp3(request);
         }
 
         #endregion

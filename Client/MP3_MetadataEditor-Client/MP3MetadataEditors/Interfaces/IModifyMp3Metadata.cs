@@ -2,7 +2,7 @@
 
 namespace MP3_MetadataEditor_Client.Logic.Interfaces
 {
-    public interface IMP3MetadataReader
+    public interface IModifyMp3Metadata
     {
         ModelMP3 GetMP3Metadata(string path);
 

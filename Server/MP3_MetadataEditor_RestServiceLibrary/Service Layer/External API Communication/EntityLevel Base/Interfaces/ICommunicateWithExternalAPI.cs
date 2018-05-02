@@ -2,7 +2,7 @@
 
 namespace MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Service.EntityLevel.Interfaces
 {
-    interface IThirdPartyAPI
+    interface ICommunicateWithExternalApi
     {
         ResponseBase GetAlbumArt(RequestBase request);
     }

@@ -7,19 +7,19 @@ using MP3_MetadataEditor_RestServiceLibrary.Service_Layer.LastFM_Service.EntityL
 
 namespace MP3_MetadataEditor_RestServiceLibrary.Service_Layer.LastFM_Service.Proxy
 {
-    public class LastFMApiServiceProxy : IThirdPartyAPI
+    public class LastFmApiServiceProxy : ICommunicateWithExternalApi
     {
         #region Properties
 
-        private readonly IThirdPartyAPI service;
+        private readonly ICommunicateWithExternalApi _service;
 
         #endregion
 
         #region Constructor
 
-        public LastFMApiServiceProxy()
+        public LastFmApiServiceProxy()
         {
-            service = new LastFMApiService();
+            _service = new LastFmApiService();
         }
 
         #endregion
@@ -28,7 +28,7 @@ namespace MP3_MetadataEditor_RestServiceLibrary.Service_Layer.LastFM_Service.Pro
 
         public ResponseBase GetAlbumArt(RequestBase request)
         {
-            return service.GetAlbumArt(request as LastFMServiceRequest) as LastFMServiceResponse;
+            return _service.GetAlbumArt(request as LastFMServiceRequest) as LastFMServiceResponse;
         }
 
         #endregion

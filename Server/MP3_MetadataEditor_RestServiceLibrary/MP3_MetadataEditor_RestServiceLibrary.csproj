@@ -65,14 +65,14 @@
     <Compile Include="Service Layer\MP3MetadataEditor Service\Helpers\Converters\Converters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service Layer\MP3MetadataEditor Service\EntityLevel\MP3MetadataEditorService.cs" />
-    <Compile Include="Service Layer\Common\Base Communication Objects\RequestBase.cs" />
-    <Compile Include="Service Layer\Common\Base Communication Objects\ResponseBase.cs" />
-    <Compile Include="Service Layer\Third-Party API Communication\EntityLevel Base\Interfaces\IThirdPartyApi.cs" />
-    <Compile Include="Service Layer\Third-Party API Communication\LastFM Service\Proxy\LastFmApiServiceProxy.cs" />
-    <Compile Include="Service Layer\Third-Party API Communication\LastFM Service\Communication Objects\RequestObjects\LastFMServiceRequest.cs" />
-    <Compile Include="Service Layer\Third-Party API Communication\LastFM Service\Communication Objects\ResponseObjects\LastFMServiceResponse.cs" />
-    <Compile Include="Service Layer\Third-Party API Communication\LastFM Service\Constants\LastFMAPIConfiguration.cs" />
-    <Compile Include="Service Layer\Third-Party API Communication\LastFM Service\EntityLevel\LastFMAPIService.cs" />
+    <Compile Include="Objects\Base Communication Objects\RequestBase.cs" />
+    <Compile Include="Objects\Base Communication Objects\ResponseBase.cs" />
+    <Compile Include="Service Layer\External API Communication\EntityLevel Base\Interfaces\ICommunicateWithExternalAPI.cs" />
+    <Compile Include="Service Layer\External API Communication\LastFM API Communication\Proxy\LastFmApiServiceProxy.cs" />
+    <Compile Include="Service Layer\External API Communication\LastFM API Communication\Communication Objects\RequestObjects\LastFMServiceRequest.cs" />
+    <Compile Include="Service Layer\External API Communication\LastFM API Communication\Communication Objects\ResponseObjects\LastFMServiceResponse.cs" />
+    <Compile Include="Service Layer\External API Communication\LastFM API Communication\Constants\LastFMAPIConfiguration.cs" />
+    <Compile Include="Service Layer\External API Communication\LastFM API Communication\EntityLevel\LastFMAPIService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

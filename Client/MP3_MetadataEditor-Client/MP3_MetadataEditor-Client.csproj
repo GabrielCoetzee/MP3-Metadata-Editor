@@ -79,10 +79,10 @@
     <Compile Include="Helpers\Constants\Paths.cs" />
     <Compile Include="Helpers\Constants\ValidationErrors.cs" />
     <Compile Include="Helpers\Converters\BinaryImageConverter.cs" />
-    <Compile Include="MetadataReaders\Factory\MP3MetadataReaderFactory.cs" />
-    <Compile Include="MetadataReaders\Types\MP3MetadataReaderTypes.cs" />
-    <Compile Include="MetadataReaders\Interface Implementations\TaglibMP3MetadataReader.cs" />
-    <Compile Include="MetadataReaders\Interfaces\IMP3MetadataReader.cs" />
+    <Compile Include="MP3MetadataEditors\Factory\Mp3MetadataEditorFactory.cs" />
+    <Compile Include="MP3MetadataEditors\Types\MP3MetadataReaderTypes.cs" />
+    <Compile Include="MP3MetadataEditors\Interface Implementations\TaglibMp3MetadataEditorWrapper.cs" />
+    <Compile Include="MP3MetadataEditors\Interfaces\IModifyMp3Metadata.cs" />
     <Compile Include="Service Communication\EntityLevel\IMp3MetadataEditorService.cs" />
     <Compile Include="Service Communication\EntityLevel\Mp3MetadataEditorService.cs" />
     <Compile Include="Service Communication\Proxy\MP3MetadataEditorServiceProxy.cs" />
