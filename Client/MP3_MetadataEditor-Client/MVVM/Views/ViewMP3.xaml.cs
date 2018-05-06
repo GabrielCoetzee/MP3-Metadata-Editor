@@ -17,7 +17,7 @@ namespace MP3_MetadataEditor_Client
 
         private void InitializeViewModel()
         {
-            DataContext = new ViewModelMP3();
+            DataContext = new ViewModelMp3();
         }
     }
 }

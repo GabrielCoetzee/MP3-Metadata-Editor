@@ -13,7 +13,7 @@ namespace MP3_MetadataEditor_Client.Logic.Interface_Implementations
 
         private File _taglibMp3MetadataEditor;
 
-        public ModelMP3 MP3 { get; set; } = new ModelMP3() { };
+        public ModelMp3 MP3 { get; set; } = new ModelMp3() { };
 
         #endregion
 
@@ -24,7 +24,7 @@ namespace MP3_MetadataEditor_Client.Logic.Interface_Implementations
             _taglibMp3MetadataEditor.Dispose();
         }
 
-        public ModelMP3 GetMP3Metadata(string path)
+        public ModelMp3 GetMP3Metadata(string path)
         {
             _taglibMp3MetadataEditor = File.Create(path);
 
@@ -38,19 +38,19 @@ namespace MP3_MetadataEditor_Client.Logic.Interface_Implementations
             MP3.Lyrics = _taglibMp3MetadataEditor.Tag.Lyrics;
             MP3.Composer = _taglibMp3MetadataEditor.Tag.FirstComposer;
             MP3.SongTitle = _taglibMp3MetadataEditor.Tag.Title;
-            MP3.FullMP3Path = path;
-            MP3.DisplayMP3Path = Path.GetFileName(path);
+            MP3.FullMp3Path = path;
+            MP3.DisplayMp3Path = Path.GetFileName(path);
 
             return MP3;
         }
 
-        public void SaveMP3(ModelMP3 metadata)
+        public void SaveMP3(ModelMp3 metadata)
         {
             SetMP3Metadata(metadata);
             _taglibMp3MetadataEditor.Save();
         }
 
-        private void SetMP3Metadata(ModelMP3 metadata)
+        private void SetMP3Metadata(ModelMp3 metadata)
         {
             _taglibMp3MetadataEditor.Tag.AlbumArtists = new string[] { metadata.Artist != null ? metadata.Artist : "" };
             _taglibMp3MetadataEditor.Tag.Composers = new string[] { metadata.Composer != null ? metadata.Composer : "" };

@@ -15,7 +15,7 @@ using MP3_MetadataEditor_Client.MetadataReaders.Interface_Implementations.Factor
 
 namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 {
-    public class ViewModelMP3 : INotifyPropertyChanged
+    public class ViewModelMp3 : INotifyPropertyChanged
     {
         #region Interface Implementations
 
@@ -30,21 +30,21 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         #region Properties
 
-        private ModelMP3 _modelMP3;
-        private ICommand _loadMP3Command;
+        private ModelMp3 _modelMp3;
+        private ICommand _loadMp3Command;
         private ICommand _browseAlbumArtCommand;
-        private ICommand _saveMP3Command;
+        private ICommand _saveMp3Command;
         private ICommand _clearAlbumArtCommand;
         private ICommand _downloadAlbumArtCommand;
         private IModifyMp3Metadata _modifyMp3Metadata;
 
-        public ModelMP3 ModelMP3
+        public ModelMp3 ModelMp3
         {
-            get => _modelMP3;
+            get => _modelMp3;
             set
             {
-                _modelMP3 = value;
-                OnPropertyChanged(nameof(ModelMP3));
+                _modelMp3 = value;
+                OnPropertyChanged(nameof(ModelMp3));
             }
         }
 
@@ -59,23 +59,23 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
         }
 
 
-        public ICommand SaveMP3Command
+        public ICommand SaveMp3Command
         {
-            get => _saveMP3Command;
+            get => _saveMp3Command;
             set
             {
-                _saveMP3Command = value;
-                OnPropertyChanged(nameof(SaveMP3Command));
+                _saveMp3Command = value;
+                OnPropertyChanged(nameof(SaveMp3Command));
             }
         }
 
-        public ICommand LoadMP3Command
+        public ICommand LoadMp3Command
         {
-            get => _loadMP3Command;
+            get => _loadMp3Command;
             set
             {
-                _loadMP3Command = value;
-                OnPropertyChanged(nameof(LoadMP3Command));
+                _loadMp3Command = value;
+                OnPropertyChanged(nameof(LoadMp3Command));
             }
         }
 
@@ -103,10 +103,10 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         #region Constructor
 
-        public ViewModelMP3()
+        public ViewModelMp3()
         {
             InitializeCommands();
-            GetMP3MetadataEditor();
+            GetMp3MetadataEditor();
         }
 
         #endregion Constructor
@@ -115,14 +115,14 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         private void InitializeCommands()
         {
-            LoadMP3Command = new RelayCommand(LoadMP3Command_Execute, LoadMP3Command_CanExecute);
+            LoadMp3Command = new RelayCommand(LoadMP3Command_Execute, LoadMP3Command_CanExecute);
             BrowseAlbumArtCommand = new RelayCommand(LoadAlbumArtCommand_Execute, LoadAlbumArtCommand_CanExecute);
-            SaveMP3Command = new RelayCommand(SaveMP3Command_Execute, SaveMP3Command_CanExecute);
+            SaveMp3Command = new RelayCommand(SaveMP3Command_Execute, SaveMP3Command_CanExecute);
             ClearAlbumArtCommand = new RelayCommand(ClearAlbumArtCommand_Execute, ClearAlbumArtCommand_CanExecute);
             DownloadAlbumArtCommand = new RelayCommand(DownloadAlbumArtCommand_Execute, DownloadAlbumArtCommand_CanExecute);
         }
 
-        private void GetMP3MetadataEditor()
+        private void GetMp3MetadataEditor()
         {
             _modifyMp3Metadata = Mp3MetadataEditorFactory.Instance.GetMp3MetadataEditor(MP3MetadataReaderTypes.Mp3MetadataReaders.Taglib);
         }
@@ -133,9 +133,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         public bool DownloadAlbumArtCommand_CanExecute()
         {
-            bool canExecute = ModelMP3 != null && (ModelMP3.AlbumArt == null || ModelMP3.AlbumArt.Length < 1) && !ModelMP3.IsBusyDownloadingAlbumArt && !ModelMP3.IsBusySavingMP3;
-
-            return canExecute;
+            return ModelMp3 != null && (ModelMp3.AlbumArt == null || ModelMp3.AlbumArt.Length < 1) && !ModelMp3.IsBusyDownloadingAlbumArt && !ModelMp3.IsBusySavingMp3;
         }
 
         public void DownloadAlbumArtCommand_Execute()
@@ -145,14 +143,12 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             backgroundWorker.RunWorkerCompleted += BackgroundWorker_DownloadAlbumArt_Completed_AssignAlbumArtToVM;
 
             backgroundWorker.RunWorkerAsync();
-            ModelMP3.IsBusyDownloadingAlbumArt = true;
+            ModelMp3.IsBusyDownloadingAlbumArt = true;
         }
 
         public bool ClearAlbumArtCommand_CanExecute()
         {
-            bool canExecute = ModelMP3 != null && ModelMP3.AlbumArt != null && ModelMP3.AlbumArt.Length >= 1 && !ModelMP3.IsBusySavingMP3;
-
-            return canExecute;
+            return ModelMp3 != null && ModelMp3.AlbumArt != null && ModelMp3.AlbumArt.Length >= 1 && !ModelMp3.IsBusySavingMp3;
         }
 
         public void ClearAlbumArtCommand_Execute()
@@ -162,9 +158,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         public bool SaveMP3Command_CanExecute()
         {
-            bool canExecute = ModelMP3 != null && ModelMP3.FullMP3Path != string.Empty && !ModelMP3.HasError && !ModelMP3.IsBusyDownloadingAlbumArt && !ModelMP3.IsBusySavingMP3;
-
-            return canExecute;
+            return ModelMp3 != null && ModelMp3.FullMp3Path != string.Empty && !ModelMp3.HasError && !ModelMp3.IsBusyDownloadingAlbumArt && !ModelMp3.IsBusySavingMp3;
         }
 
         public void SaveMP3Command_Execute()
@@ -174,14 +168,12 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             backgroundWorker.RunWorkerCompleted += BackgroundWorker_SaveMP3_Completed_UpdateUI_InformUser;
 
             backgroundWorker.RunWorkerAsync();
-            ModelMP3.IsBusySavingMP3 = true;
+            ModelMp3.IsBusySavingMp3 = true;
         }
 
         public bool LoadAlbumArtCommand_CanExecute()
         {
-            bool canExecute = ModelMP3 != null && ModelMP3.FullMP3Path != string.Empty && !ModelMP3.IsBusyDownloadingAlbumArt && !ModelMP3.IsBusySavingMP3;
-
-            return canExecute;
+            return ModelMp3 != null && ModelMp3.FullMp3Path != string.Empty && !ModelMp3.IsBusyDownloadingAlbumArt && !ModelMp3.IsBusySavingMp3;
         }
 
         public void LoadAlbumArtCommand_Execute()
@@ -193,10 +185,10 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
         {
             bool canExecute = false;
 
-            if (ModelMP3 == null) //If null, model instance is empty, allow user to select mp3
+            if (ModelMp3 == null) //If null, model instance is empty, allow user to select mp3
                 canExecute = true;
 
-            if (ModelMP3 != null && !ModelMP3.IsBusyDownloadingAlbumArt && !ModelMP3.IsBusySavingMP3) //If model instance is not empty, do not allow user to load new mp3 while current one is being saved asynchronously
+            if (ModelMp3 != null && !ModelMp3.IsBusyDownloadingAlbumArt && !ModelMp3.IsBusySavingMp3) //If model instance is not empty, do not allow user to load new mp3 while current one is being saved asynchronously
                 canExecute = true;
 
             return canExecute;
@@ -204,7 +196,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         public void LoadMP3Command_Execute()
         {
-            LoadMP3();
+            LoadMp3();
         }
 
         #endregion Command Methods
@@ -216,7 +208,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             try
             {
                 var proxy = new Mp3MetadataEditorServiceProxy();
-                string imageFilePath = proxy.GetAlbumArt(ModelMP3.Artist, ModelMP3.SongTitle).Replace('"', ' ').Replace(Path.DirectorySeparatorChar, ' ');
+                string imageFilePath = proxy.GetAlbumArt(ModelMp3.Artist, ModelMp3.SongTitle).Replace('"', ' ').Replace(Path.DirectorySeparatorChar, ' ');
                 byte[] image = Convert.FromBase64String(imageFilePath);
                 e.Result = image;
             }
@@ -231,12 +223,11 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             var albumArt = (byte[])e.Result;
 
             if (e.Error == null && albumArt?.Length > 1)
-                ModelMP3.AlbumArt = albumArt;
+                ModelMp3.AlbumArt = albumArt;
             else
-                System.Windows.Forms.MessageBox.Show(
-                    $"Unable to locate album art for {ModelMP3.Artist} - {ModelMP3.SongTitle}.\nPlease verify that MP3 MP3 Editor Windows Service is running.", "No Album Art Found", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation);
+                System.Windows.Forms.MessageBox.Show($"Unable to locate album art for {ModelMp3.Artist} - {ModelMp3.SongTitle}.\nPlease verify that MP3 MP3 Editor Windows Service is running.", "No Album Art Found", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation);
 
-            ModelMP3.IsBusyDownloadingAlbumArt = false;
+            ModelMp3.IsBusyDownloadingAlbumArt = false;
 
             CommandManager.InvalidateRequerySuggested(); //Used to force 'canExecute' methods to execute again, to update state of model instance on ViewModel
         }
@@ -246,7 +237,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             var dialogMessage = "";
 
             SaveMP3(ref dialogMessage);
-            AddMP3ToDatabase(ref dialogMessage);
+            AddMp3ToDatabase(ref dialogMessage);
 
             e.Result = dialogMessage;
         }
@@ -255,7 +246,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
         {
             string dialogMessage = e.Result.ToString();
 
-            ModelMP3.IsBusySavingMP3 = false;
+            ModelMp3.IsBusySavingMp3 = false;
             CommandManager.InvalidateRequerySuggested(); // Used to force 'canExecute' methods to execute again, to update state of model instance on ViewModel
 
             System.Windows.Forms.MessageBox.Show(dialogMessage, "Update Successful", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
@@ -267,19 +258,19 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         private void ClearAll()
         {
-            ModelMP3 = null;
+            ModelMp3 = null;
         }
 
         private void ClearAlbumArt()
         {
-            ModelMP3.AlbumArt = new byte[0];
+            ModelMp3.AlbumArt = new byte[0];
         }
 
         private void SaveMP3(ref string dialogMessage)
         {
             try
             {
-                _modifyMp3Metadata.SaveMP3(ModelMP3);
+                _modifyMp3Metadata.SaveMP3(ModelMp3);
                 dialogMessage += "MP3 file has been successfully updated.";
             }
             catch (IOException)
@@ -292,7 +283,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             }
         }
 
-        private void AddMP3ToDatabase(ref string dialogMessage)
+        private void AddMp3ToDatabase(ref string dialogMessage)
         {
             try
             {
@@ -300,16 +291,16 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
                 var request = new Mp3MetadataEditorServiceRequest();
                 request.Body = new Body()
                 {
-                    Album = ModelMP3.Album,
-                    AlbumArt = Convert.ToBase64String(ModelMP3.AlbumArt),
-                    Artist = ModelMP3.Artist,
-                    Comments = ModelMP3.Comments,
-                    Composer = ModelMP3.Composer,
-                    Genre = ModelMP3.Genre,
-                    Lyrics = ModelMP3.Lyrics,
-                    SongTitle = ModelMP3.SongTitle,
-                    TrackNumber = ModelMP3.TrackNumber,
-                    Year = ModelMP3.Year
+                    Album = ModelMp3.Album,
+                    AlbumArt = Convert.ToBase64String(ModelMp3.AlbumArt),
+                    Artist = ModelMp3.Artist,
+                    Comments = ModelMp3.Comments,
+                    Composer = ModelMp3.Composer,
+                    Genre = ModelMp3.Genre,
+                    Lyrics = ModelMp3.Lyrics,
+                    SongTitle = ModelMp3.SongTitle,
+                    TrackNumber = ModelMp3.TrackNumber,
+                    Year = ModelMp3.Year
                 };
 
                 if (proxy.AddMp3(request).StatusCode == HttpStatusCode.OK)
@@ -323,19 +314,19 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
 
         }
 
-        private void LoadMP3()
+        private void LoadMp3()
         {
-            var chooseMP3 = new OpenFileDialog();
+            var chooseMp3 = new OpenFileDialog();
 
-            chooseMP3.Title = "Choose MP3";
-            chooseMP3.DefaultExt = ".mp3";
-            chooseMP3.Filter = "MP3 Format|*.mp3";
-            chooseMP3.Multiselect = false;
+            chooseMp3.Title = "Choose MP3";
+            chooseMp3.DefaultExt = ".mp3";
+            chooseMp3.Filter = "MP3 Format|*.mp3";
+            chooseMp3.Multiselect = false;
 
-            bool? result = chooseMP3.ShowDialog();
+            bool? result = chooseMp3.ShowDialog();
 
             if (result ?? true)
-                ModelMP3 = _modifyMp3Metadata.GetMP3Metadata(chooseMP3.FileName);
+                ModelMp3 = _modifyMp3Metadata.GetMP3Metadata(chooseMp3.FileName);
         }
 
         private void LoadAlbumArt()
@@ -350,7 +341,7 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             bool? result = chooseAlbumArt.ShowDialog();
 
             if (result ?? true)
-                ModelMP3.AlbumArt = BinaryImageConverter.ConvertToByteArray(chooseAlbumArt.FileName);
+                ModelMp3.AlbumArt = BinaryImageConverter.ConvertToByteArray(chooseAlbumArt.FileName);
         }
 
         #endregion Logic Methods - Interaction and manipulation of Model Instance within ViewModel

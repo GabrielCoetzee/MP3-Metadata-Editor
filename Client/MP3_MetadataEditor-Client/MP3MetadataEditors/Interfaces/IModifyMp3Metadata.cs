@@ -4,9 +4,9 @@ namespace MP3_MetadataEditor_Client.Logic.Interfaces
 {
     public interface IModifyMp3Metadata
     {
-        ModelMP3 GetMP3Metadata(string path);
+        ModelMp3 GetMP3Metadata(string path);
 
-        void SaveMP3(ModelMP3 metadata);
+        void SaveMP3(ModelMp3 metadata);
 
         void Dispose();
     }

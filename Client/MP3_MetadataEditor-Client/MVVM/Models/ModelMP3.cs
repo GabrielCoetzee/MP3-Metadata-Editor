@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace MP3_MetadataEditor_Client.MVVM.Models
 {
-    public class ModelMP3 : INotifyPropertyChanged, IDataErrorInfo
+    public class ModelMp3 : INotifyPropertyChanged, IDataErrorInfo
     {
         #region Interface Implemenations
 
@@ -73,35 +73,29 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
         private string _lyrics;
         private string _composer;
         private string _songTitle;
-        private string _fullMP3Path;
-        private string _displayMP3Path;
+        private string _fullMp3Path;
+        private string _displayMp3Path;
         private bool _isBusyDownloadingAlbumArt;
-        private bool _isBusySavingMP3;
+        private bool _isBusySavingMp3;
 
         private Dictionary<string, string> _errorList = new Dictionary<string, string>() { };
 
-        public bool HasError
-        {
-            get
-            {
-                return _errorList.Count > 0;
-            }
-        }
+        public bool HasError => _errorList.Count > 0;
 
-        public bool IsBusySavingMP3
+        public bool IsBusySavingMp3
         {
-            get { return _isBusySavingMP3; }
+            get => _isBusySavingMp3;
             set
             {
-                _isBusySavingMP3 = value;
-                OnPropertyChanged(nameof(IsBusySavingMP3));
+                _isBusySavingMp3 = value;
+                OnPropertyChanged(nameof(IsBusySavingMp3));
             }
         }
 
 
         public bool IsBusyDownloadingAlbumArt
         {
-            get { return _isBusyDownloadingAlbumArt; }
+            get => _isBusyDownloadingAlbumArt;
             set
             {
                 _isBusyDownloadingAlbumArt = value;
@@ -109,29 +103,29 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
             }
         }
 
-        public string DisplayMP3Path
+        public string DisplayMp3Path
         {
-            get { return _displayMP3Path; }
+            get => _displayMp3Path;
             set
             {
-                _displayMP3Path = value;
-                OnPropertyChanged(nameof(DisplayMP3Path));
+                _displayMp3Path = value;
+                OnPropertyChanged(nameof(DisplayMp3Path));
             }
         }
 
-        public string FullMP3Path
+        public string FullMp3Path
         {
-            get { return _fullMP3Path; }
+            get => _fullMp3Path;
             set
             {
-                _fullMP3Path = value;
-                OnPropertyChanged(nameof(FullMP3Path));
+                _fullMp3Path = value;
+                OnPropertyChanged(nameof(FullMp3Path));
             }
         }
 
         public byte[] AlbumArt
         {
-            get { return _albumArt; }
+            get => _albumArt;
             set
             {
                 _albumArt = value;
@@ -141,7 +135,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
 
         public string Album
         {
-            get { return _album; }
+            get => _album;
             set
             {
                 _album = value;
@@ -150,7 +144,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
         }
         public string Artist
         {
-            get { return _artist; }
+            get => _artist;
             set
             {
                 _artist = value;
@@ -160,7 +154,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
 
         public string Genre
         {
-            get { return _genre; }
+            get => _genre;
             set
             {
                 _genre = value;
@@ -170,7 +164,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
 
         public string Comments
         {
-            get { return _comments; }
+            get => _comments;
             set
             {
                 _comments = value;
@@ -180,7 +174,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
 
         public uint? TrackNumber
         {
-            get { return _trackNumber; }
+            get => _trackNumber;
             set
             {
                 _trackNumber = value;
@@ -190,7 +184,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
 
         public uint? Year
         {
-            get { return _year; }
+            get => _year;
             set
             {
                 _year = value;
@@ -200,7 +194,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
 
         public string Lyrics
         {
-            get { return _lyrics; }
+            get => _lyrics;
             set
             {
                 _lyrics = value;
@@ -210,7 +204,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
 
         public string Composer
         {
-            get { return _composer; }
+            get => _composer;
             set
             {
                 _composer = value;
@@ -220,7 +214,7 @@ namespace MP3_MetadataEditor_Client.MVVM.Models
 
         public string SongTitle
         {
-            get { return _songTitle; }
+            get => _songTitle;
             set
             {
                 _songTitle = value;
