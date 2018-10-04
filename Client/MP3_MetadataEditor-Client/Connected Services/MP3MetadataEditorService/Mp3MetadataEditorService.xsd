@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.ResponseObjects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.ResponseObjects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/api/Mp3MetadataEditorService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" />
+  <xs:complexType name="AddMp3Response">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" base="q1:ResponseBaseOfboolean">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddMp3Response" nillable="true" type="tns:AddMp3Response" />
+  <xs:complexType name="GetAlbumArtResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" base="q2:ResponseBaseOfstring">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAlbumArtResponse" nillable="true" type="tns:GetAlbumArtResponse" />
+</xs:schema>

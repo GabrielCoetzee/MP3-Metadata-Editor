@@ -49,8 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data Access Layer\Context Classes\MP3DbContext.cs" />
-    <Compile Include="Data Access Layer\Database Models\MP3.cs" />
+    <Compile Include="Data Access Layer\Core\Domain\MP3.cs" />
+    <Compile Include="Data Access Layer\Core\IUnitOfWork.cs" />
+    <Compile Include="Data Access Layer\Core\Repositories\IMP3Repository.cs" />
+    <Compile Include="Data Access Layer\Core\Repositories\IRepository.cs" />
+    <Compile Include="Data Access Layer\Persistence\MP3DbContext.cs" />
     <Compile Include="Data Access Layer\Migrations\201802081801199_CreateMP3.cs" />
     <Compile Include="Data Access Layer\Migrations\201802081801199_CreateMP3.Designer.cs">
       <DependentUpon>201802081801199_CreateMP3.cs</DependentUpon>
@@ -60,6 +63,9 @@
       <DependentUpon>201802081913243_DateAddedFieldAddedtoMP3Model.cs</DependentUpon>
     </Compile>
     <Compile Include="Data Access Layer\Migrations\Configuration.cs" />
+    <Compile Include="Data Access Layer\Persistence\Repositories\MP3Repository.cs" />
+    <Compile Include="Data Access Layer\Persistence\Repositories\Repository.cs" />
+    <Compile Include="Data Access Layer\Persistence\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

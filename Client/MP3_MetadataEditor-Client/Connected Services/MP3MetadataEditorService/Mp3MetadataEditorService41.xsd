@@ -1,11 +1,66 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MP3_MP3Editor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/api/Mp3MetadataEditorService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.RequestObjects" />
+  <xs:import schemaLocation="http://localhost:8733/api/Mp3MetadataEditorService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Net" />
+  <xs:complexType name="RequestBaseOfMp3RequestIntermediaryObjectBodyXcMHJmAu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="RequestBaseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Mp3RequestIntermediaryObjectBody" Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.RequestObjects" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.RequestObjects" minOccurs="0" name="Body" nillable="true" type="q1:Mp3RequestIntermediaryObjectBody" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestBaseOfMp3RequestIntermediaryObjectBodyXcMHJmAu" nillable="true" type="tns:RequestBaseOfMp3RequestIntermediaryObjectBodyXcMHJmAu" />
   <xs:complexType name="RequestBase">
     <xs:sequence />
   </xs:complexType>
   <xs:element name="RequestBase" nillable="true" type="tns:RequestBase" />
+  <xs:complexType name="ResponseBaseOfboolean">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponseBaseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DataValue" type="xs:boolean" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Net" minOccurs="0" name="StatusCode" type="q2:HttpStatusCode" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseBaseOfboolean" nillable="true" type="tns:ResponseBaseOfboolean" />
   <xs:complexType name="ResponseBase">
     <xs:sequence />
   </xs:complexType>
   <xs:element name="ResponseBase" nillable="true" type="tns:ResponseBase" />
+  <xs:complexType name="ResponseBaseOfstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponseBaseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Service_Layer.Base_Communication_Objects" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DataValue" nillable="true" type="xs:string" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.Net" minOccurs="0" name="StatusCode" type="q3:HttpStatusCode" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseBaseOfstring" nillable="true" type="tns:ResponseBaseOfstring" />
 </xs:schema>

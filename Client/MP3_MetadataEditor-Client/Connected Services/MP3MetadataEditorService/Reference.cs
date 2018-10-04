@@ -18,7 +18,8 @@ namespace MP3_MetadataEditor_Client.MP3MetadataEditorService {
     [System.Runtime.Serialization.DataContractAttribute(Name="RequestBase", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
         "vice_Layer.Base_Communication_Objects")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MP3_MetadataEditor_Client.MP3MetadataEditorService.Mp3MetadataEditorServiceRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MP3_MetadataEditor_Client.MP3MetadataEditorService.RequestBaseOfMp3RequestIntermediaryObjectBodyXcMHJmAu))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MP3_MetadataEditor_Client.MP3MetadataEditorService.AddMp3Request))]
     public partial class RequestBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -46,17 +47,17 @@ namespace MP3_MetadataEditor_Client.MP3MetadataEditorService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Mp3MetadataEditorServiceRequest", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
-        "vice_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.RequestObjects" +
-        "")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RequestBaseOfMp3RequestIntermediaryObjectBodyXcMHJmAu", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
+        "vice_Layer.Base_Communication_Objects")]
     [System.SerializableAttribute()]
-    public partial class Mp3MetadataEditorServiceRequest : MP3_MetadataEditor_Client.MP3MetadataEditorService.RequestBase {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MP3_MetadataEditor_Client.MP3MetadataEditorService.AddMp3Request))]
+    public partial class RequestBaseOfMp3RequestIntermediaryObjectBodyXcMHJmAu : MP3_MetadataEditor_Client.MP3MetadataEditorService.RequestBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MP3_MetadataEditor_Client.MP3MetadataEditorService.Body BodyField;
+        private MP3_MetadataEditor_Client.MP3MetadataEditorService.Mp3RequestIntermediaryObjectBody BodyField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MP3_MetadataEditor_Client.MP3MetadataEditorService.Body Body {
+        public MP3_MetadataEditor_Client.MP3MetadataEditorService.Mp3RequestIntermediaryObjectBody Body {
             get {
                 return this.BodyField;
             }
@@ -71,11 +72,20 @@ namespace MP3_MetadataEditor_Client.MP3MetadataEditorService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Body", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="AddMp3Request", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
         "vice_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.RequestObjects" +
         "")]
     [System.SerializableAttribute()]
-    public partial class Body : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class AddMp3Request : MP3_MetadataEditor_Client.MP3MetadataEditorService.RequestBaseOfMp3RequestIntermediaryObjectBodyXcMHJmAu {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Mp3RequestIntermediaryObjectBody", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
+        "vice_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.RequestObjects" +
+        "")]
+    [System.SerializableAttribute()]
+    public partial class Mp3RequestIntermediaryObjectBody : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -281,7 +291,10 @@ namespace MP3_MetadataEditor_Client.MP3MetadataEditorService {
     [System.Runtime.Serialization.DataContractAttribute(Name="ResponseBase", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
         "vice_Layer.Base_Communication_Objects")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MP3_MetadataEditor_Client.MP3MetadataEditorService.Mp3MetadataEditorServiceResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MP3_MetadataEditor_Client.MP3MetadataEditorService.ResponseBaseOfstring))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MP3_MetadataEditor_Client.MP3MetadataEditorService.GetAlbumArtResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MP3_MetadataEditor_Client.MP3MetadataEditorService.ResponseBaseOfboolean))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MP3_MetadataEditor_Client.MP3MetadataEditorService.AddMp3Response))]
     public partial class ResponseBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -309,14 +322,30 @@ namespace MP3_MetadataEditor_Client.MP3MetadataEditorService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Mp3MetadataEditorServiceResponse", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
-        "vice_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.ResponseObject" +
-        "s")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResponseBaseOfstring", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
+        "vice_Layer.Base_Communication_Objects")]
     [System.SerializableAttribute()]
-    public partial class Mp3MetadataEditorServiceResponse : MP3_MetadataEditor_Client.MP3MetadataEditorService.ResponseBase {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MP3_MetadataEditor_Client.MP3MetadataEditorService.GetAlbumArtResponse))]
+    public partial class ResponseBaseOfstring : MP3_MetadataEditor_Client.MP3MetadataEditorService.ResponseBase {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DataValueField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Net.HttpStatusCode StatusCodeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DataValue {
+            get {
+                return this.DataValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataValueField, value) != true)) {
+                    this.DataValueField = value;
+                    this.RaisePropertyChanged("DataValue");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Net.HttpStatusCode StatusCode {
@@ -332,15 +361,74 @@ namespace MP3_MetadataEditor_Client.MP3MetadataEditorService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetAlbumArtResponse", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
+        "vice_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.ResponseObject" +
+        "s")]
+    [System.SerializableAttribute()]
+    public partial class GetAlbumArtResponse : MP3_MetadataEditor_Client.MP3MetadataEditorService.ResponseBaseOfstring {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResponseBaseOfboolean", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
+        "vice_Layer.Base_Communication_Objects")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MP3_MetadataEditor_Client.MP3MetadataEditorService.AddMp3Response))]
+    public partial class ResponseBaseOfboolean : MP3_MetadataEditor_Client.MP3MetadataEditorService.ResponseBase {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DataValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Net.HttpStatusCode StatusCodeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool DataValue {
+            get {
+                return this.DataValueField;
+            }
+            set {
+                if ((this.DataValueField.Equals(value) != true)) {
+                    this.DataValueField = value;
+                    this.RaisePropertyChanged("DataValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Net.HttpStatusCode StatusCode {
+            get {
+                return this.StatusCodeField;
+            }
+            set {
+                if ((this.StatusCodeField.Equals(value) != true)) {
+                    this.StatusCodeField = value;
+                    this.RaisePropertyChanged("StatusCode");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AddMp3Response", Namespace="http://schemas.datacontract.org/2004/07/MP3_MetadataEditor_RestServiceLibrary.Ser" +
+        "vice_Layer.MP3MetadataEditor_Service.Client_Communication_Objects.ResponseObject" +
+        "s")]
+    [System.SerializableAttribute()]
+    public partial class AddMp3Response : MP3_MetadataEditor_Client.MP3MetadataEditorService.ResponseBaseOfboolean {
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MP3MetadataEditorService.IMp3MetadataEditorService")]
     public interface IMp3MetadataEditorService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMp3MetadataEditorService/AddMP3", ReplyAction="http://tempuri.org/IMp3MetadataEditorService/AddMP3Response")]
-        MP3_MetadataEditor_Client.MP3MetadataEditorService.Mp3MetadataEditorServiceResponse AddMP3(MP3_MetadataEditor_Client.MP3MetadataEditorService.Mp3MetadataEditorServiceRequest request);
+        MP3_MetadataEditor_Client.MP3MetadataEditorService.AddMp3Response AddMP3(MP3_MetadataEditor_Client.MP3MetadataEditorService.AddMp3Request request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMp3MetadataEditorService/GetAlbumArt", ReplyAction="http://tempuri.org/IMp3MetadataEditorService/GetAlbumArtResponse")]
-        string GetAlbumArt(string artist, string song);
+        MP3_MetadataEditor_Client.MP3MetadataEditorService.GetAlbumArtResponse GetAlbumArt(string artist, string song);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -370,11 +458,11 @@ namespace MP3_MetadataEditor_Client.MP3MetadataEditorService {
                 base(binding, remoteAddress) {
         }
         
-        public MP3_MetadataEditor_Client.MP3MetadataEditorService.Mp3MetadataEditorServiceResponse AddMP3(MP3_MetadataEditor_Client.MP3MetadataEditorService.Mp3MetadataEditorServiceRequest request) {
+        public MP3_MetadataEditor_Client.MP3MetadataEditorService.AddMp3Response AddMP3(MP3_MetadataEditor_Client.MP3MetadataEditorService.AddMp3Request request) {
             return base.Channel.AddMP3(request);
         }
         
-        public string GetAlbumArt(string artist, string song) {
+        public MP3_MetadataEditor_Client.MP3MetadataEditorService.GetAlbumArtResponse GetAlbumArt(string artist, string song) {
             return base.Channel.GetAlbumArt(artist, song);
         }
     }

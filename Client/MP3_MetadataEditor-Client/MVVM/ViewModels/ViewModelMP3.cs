@@ -208,7 +208,10 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             try
             {
                 var proxy = new Mp3MetadataEditorServiceProxy();
-                string imageFilePath = proxy.GetAlbumArt(ModelMp3.Artist, ModelMp3.SongTitle).Replace('"', ' ').Replace(Path.DirectorySeparatorChar, ' ');
+
+                var response = proxy.GetAlbumArt(ModelMp3.Artist, ModelMp3.SongTitle);
+
+                string imageFilePath = response.DataValue.Replace('"', ' ').Replace(Path.DirectorySeparatorChar, ' ');
                 byte[] image = Convert.FromBase64String(imageFilePath);
                 e.Result = image;
             }
@@ -288,8 +291,10 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
             try
             {
                 var proxy = new Mp3MetadataEditorServiceProxy();
-                var request = new Mp3MetadataEditorServiceRequest();
-                request.Body = new Body()
+
+                var request = new AddMp3Request();
+
+                request.Body = new Mp3RequestIntermediaryObjectBody()
                 {
                     Album = ModelMp3.Album,
                     AlbumArt = Convert.ToBase64String(ModelMp3.AlbumArt),
@@ -303,15 +308,18 @@ namespace MP3_MetadataEditor_Client.MVVM.ViewModels
                     Year = ModelMp3.Year
                 };
 
-                if (proxy.AddMp3(request).StatusCode == HttpStatusCode.OK)
+                var response = proxy.AddMP3(request);
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
                     dialogMessage += "\nMP3 details has been successfully added to database.";
+                }
             }
-            catch (WebException)
+            catch (WebException e)
             {
-                //dialogMessage += "\nMP3 details was not saved to database. MP3 MP3 Editor Windows Service is not running.";
+                dialogMessage += "\nMP3 details was not saved to database. MP3 Editor Windows Service is not running.";
+                dialogMessage += "\n\n" + e.Message;
             }
-
-
         }
 
         private void LoadMp3()

@@ -21,14 +21,14 @@ namespace MP3_MetadataEditor_Client.Service_Communication
 
         #region Public Methods
 
-        public string GetAlbumArt(string artist, string song)
+        public AddMp3Response AddMP3(AddMp3Request request)
         {
-            return _service.GetAlbumArt(artist, song);
+            return _service.AddMP3(request);
         }
 
-        public Mp3MetadataEditorServiceResponse AddMp3(Mp3MetadataEditorServiceRequest request)
+        public GetAlbumArtResponse GetAlbumArt(string artist, string song)
         {
-            return _service.AddMp3(request);
+            return _service.GetAlbumArt(artist, song);
         }
 
         #endregion

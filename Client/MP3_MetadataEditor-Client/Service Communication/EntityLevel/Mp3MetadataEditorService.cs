@@ -9,23 +9,10 @@ namespace MP3_MetadataEditor_Client.Service_Communication
 {
     public class Mp3MetadataEditorService : IMp3MetadataEditorService
     {
-        private string getAlbumArtAPIUri = @"http://localhost:8733/api/MP3MetadataEditorService/GetAlbumArt?";
-        private string addMP3APIUri = @"http://localhost:8733/api/MP3MetadataEditorService/AddMP3";
+        private readonly string getAlbumArtAPIUri = @"http://localhost:8733/api/MP3MetadataEditorService/GetAlbumArt?";
+        private readonly string addMP3APIUri = @"http://localhost:8733/api/MP3MetadataEditorService/AddMP3";
 
-        public string GetAlbumArt(string artist, string song)
-        {
-            HttpWebRequest apiRequest = (HttpWebRequest)WebRequest.Create(getAlbumArtAPIUri + $"Artist={artist}&Song={song}");
-            apiRequest.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
-
-            using (HttpWebResponse response = (HttpWebResponse)apiRequest.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                return reader.ReadToEnd();
-            }
-        }
-
-        public Mp3MetadataEditorServiceResponse AddMp3(Mp3MetadataEditorServiceRequest request)
+        public AddMp3Response AddMP3(AddMp3Request request)
         {
             string requestData = JsonConvert.SerializeObject(request);
             byte[] requestDataBytes = Encoding.UTF8.GetBytes(requestData);
@@ -44,7 +31,20 @@ namespace MP3_MetadataEditor_Client.Service_Communication
             using (Stream stream = response.GetResponseStream())
             using (StreamReader reader = new StreamReader(stream))
             {
-                return JsonConvert.DeserializeObject<Mp3MetadataEditorServiceResponse>(reader.ReadToEnd());
+                return JsonConvert.DeserializeObject<AddMp3Response>(reader.ReadToEnd());
+            }
+        }
+
+        public GetAlbumArtResponse GetAlbumArt(string artist, string song)
+        {
+            HttpWebRequest apiRequest = (HttpWebRequest)WebRequest.Create(getAlbumArtAPIUri + $"Artist={artist}&Song={song}");
+            apiRequest.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+
+            using (HttpWebResponse response = (HttpWebResponse)apiRequest.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                return JsonConvert.DeserializeObject<GetAlbumArtResponse>(reader.ReadToEnd());
             }
         }
     }
